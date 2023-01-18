@@ -13,7 +13,7 @@ protocol PresenterDelegate {
     func popToPrevious()
 }
 
-class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDelegate {
+class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDelegate , PresenterDelegate {
     
     
     
@@ -43,13 +43,25 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         
         field.attributedPlaceholder = NSAttributedString(
             string: "Type here your question...",
-            attributes:
-                //                [NSAttributedString.Key.foregroundColor: UIColor.white]
-            [ NSAttributedString.Key.foregroundColor: UIColor.white,
-              NSAttributedString.Key.font : AppFont.markProFont(ofSize: 15, weight: .bold) // Note the !
-            ]
+            attributes: [ NSAttributedString.Key.foregroundColor: UIColor.white,
+              NSAttributedString.Key.font : AppFont.markProFont(ofSize: 15, weight: .bold) ]
         )
         return field
+    }()
+    
+    let line: UILabel = {
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
+        label.backgroundColor = .white
+        
+        var stroke = UIView()
+        stroke.bounds = label.bounds.insetBy(dx: -0.5, dy: -0.5)
+        stroke.center = label.center
+        label.addSubview(stroke)
+        label.bounds = label.bounds.insetBy(dx: -0.5, dy: -0.5)
+        stroke.layer.borderWidth = 1
+        stroke.layer.borderColor = UIColor(red: 0.145, green: 0.184, blue: 0.424, alpha: 1).cgColor
+        return label
     }()
     
     let label1: UILabel = {
@@ -80,20 +92,7 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         return label
     }()
     
-    let line: UILabel = {
-        let label = UILabel()
-        label.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
-        label.backgroundColor = .white
-        
-        var stroke = UIView()
-        stroke.bounds = label.bounds.insetBy(dx: -0.5, dy: -0.5)
-        stroke.center = label.center
-        label.addSubview(stroke)
-        label.bounds = label.bounds.insetBy(dx: -0.5, dy: -0.5)
-        stroke.layer.borderWidth = 1
-        stroke.layer.borderColor = UIColor(red: 0.145, green: 0.184, blue: 0.424, alpha: 1).cgColor
-        return label
-    }()
+ 
     
     let line2: UILabel = {
         let label = UILabel()
@@ -109,8 +108,6 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         stroke.layer.borderColor = UIColor(red: 0.145, green: 0.184, blue: 0.424, alpha: 1).cgColor
         return label
     }()
-    
-    
     
     let privacyButton: UIButton = {
         let button = UIButton()
@@ -134,36 +131,41 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
     var isOn2: Bool = false
     
     
-    let privacyLabel: UILabel = {
-        let label = UILabel()
+    let privacyLabel: UITextView = {
+        let label = UITextView()
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         label.backgroundColor = .clear
         label.font = AppFont.markProFont(ofSize: 10, weight: .medium)
-        label.text = "I consent to the Privacy Policy \nand Terms of Service."
-        let text = (label.text)!
-        let underlineAttriString = NSMutableAttributedString(string: text)
-        let termsRange = (text as NSString).range(of: "Terms of Service")
-        let privacyRange = (text as NSString).range(of: "Privacy Policy")
-        underlineAttriString.addAttribute(.foregroundColor, value: UIColor.blue, range: termsRange)
-        underlineAttriString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: privacyRange)
-        label.attributedText = underlineAttriString
-        let tapAction = UITapGestureRecognizer(target: self, action: #selector(tapLabel(gesture:)))
+        let text = "I consent to the Privacy Policy \nand Terms of Service."
+        let attributedString = NSMutableAttributedString(string: "I consent to the Privacy Policy \nand Terms of Service.")
+        attributedString.addAttribute(.link, value: "https://startingapp.website/privacy.html", range: NSRange(location: 17, length: 14))
+        attributedString.addAttribute(.link, value: "https://startingapp.website/terms.html", range: NSRange(location: 37, length: 16))
+        let range = (text as NSString).range(of: text)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 17, length: 14))
+//        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 17, length: 14))
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 37, length: 16))
+        label.attributedText = attributedString
         label.isUserInteractionEnabled = true
-        label.addGestureRecognizer(tapAction)
-        //        label.dataDetectorTypes = .link
-        //        label.dataDetectorTypes = .phoneNumber
-        //        label.linkTextAttributes = [ .foregroundColor: UIColor.orange ]
+        label.isEditable = false
         return label
     }()
     
-    let guideLabel: UILabel = {
-        let label = UILabel()
+    let guideLabel: UITextView = {
+        let label = UITextView()
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label.backgroundColor = .clear
         label.font = AppFont.markProFont(ofSize: 10, weight: .medium)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = "I abide by the user-generated content guidelines of the terms of service."
-        
+        let text = "I abide by the user-generated content \nguidelines of the terms of service."
+        let attributedString = NSMutableAttributedString(string: "I abide by the user-generated content \nguidelines of the terms of service.")
+        attributedString.addAttribute(.link, value: "https://startingapp.website", range: NSRange(location: 11, length: 38))
+        let range = (text as NSString).range(of: text)
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: range)
+        attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 11, length: 38))
+//        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 17, length: 14))
+        label.attributedText = attributedString
+        label.isUserInteractionEnabled = true
+        label.isEditable = false
         return label
     }()
     
@@ -171,6 +173,7 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         let button = UIButton()
         button.addTarget(self, action: #selector(beginTapped), for: .touchUpInside)
         button.setTitle("Begin", for: .normal)
+        button.titleLabel?.font = AppFont.markProFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(hexString: "#626376")
         button.isEnabled = false
         return button
@@ -183,48 +186,12 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#63B7F8")
         setupUi()
-        makeLinks()
         textField.delegate = self
         initializeHideKeyboard()
         var questionContainer = Manager.shared.loadQuestionArray()
         self.questions = questionContainer
     }
-    
-    func makeLinks() {
 
-//        updateTextView(descrLabel: privacyLabel, path: "https://startingapp.website/privacy.html", link: "Privacy Policy")
-//        updateTextView(descrLabel: privacyLabel, path: "https://startingapp.website/terms.html", link: "Terms of Service")
-//        updateTextView(descrLabel: guideLabel, path: "https://startingapp.website/terms.html", link: "the user-generated content guidelines")
-
-//        self.privacyLabel.isUserInteractionEnabled = true
-//        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(tappedOnLabel(_ :)))
-//        tapgesture.numberOfTapsRequired = 1
-//        self.privacyLabel.addGestureRecognizer(tapgesture)
-
-    }
-    
-   
-    
-//    @objc func tappedOnLabel(_ gesture: UITapGestureRecognizer) {
-//        guard let text = self.privacyLabel.text else { return }
-//        let privacyPolicyRange = (text as NSString).range(of: "privacy policy")
-//        let termsAndConditionRange = (text as NSString).range(of: "terms and condition")
-//        if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, targetText: privacyPolicyRange) {
-//            print("user tapped on privacy policy text")
-//        } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, targetText: termsAndConditionRange){
-//            print("user tapped on terms and conditions text")
-//        }
-//    }
-    
-    @objc func tapLabel(gesture: UITapGestureRecognizer) {
-            if gesture.didTapAttributedTextInLabel(label: privacyLabel, targetText: "Privacy Policy") {
-                print("Privacy Policy")
-            } else if gesture.didTapAttributedTextInLabel(label: privacyLabel, targetText: "Terms of Service") {
-                print("Terms of Service")
-            } else {
-                print("Tapped none")
-            }
-    }
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -311,6 +278,11 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDel
         }
         return true
     }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+            UIApplication.shared.open(URL)
+            return false
+        }
     
     func initializeHideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(

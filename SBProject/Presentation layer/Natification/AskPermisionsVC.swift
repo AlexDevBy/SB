@@ -59,7 +59,8 @@ class AskPermisionsVS: UIViewController{
    private lazy var askButton: UIButton = {
         let button = UIButton()
         button.setTitle("Allow", for: .normal)
-//       button.setTitleColor(AppColors.white, for: .normal)
+       button.titleLabel?.font = AppFont.markProFont(ofSize: 18, weight: .bold)
+       button.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
        button.backgroundColor = UIColor(hexString: "#262F68")
        button.addTarget(self, action: #selector(allowTapped), for: .touchUpInside)
         return button
@@ -67,8 +68,11 @@ class AskPermisionsVS: UIViewController{
     
     
     private lazy var skipButton: UIButton = {
-         let button = UIButton(type: .system)
+         let button = UIButton()
          button.setTitle("Not now", for: .normal)
+        button.titleLabel?.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        button.titleLabel?.font = UIFont(name: "Roboto-Regular", size: 14)
+        button.titleLabel?.attributedText = NSMutableAttributedString(string: "Not now", attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         button.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
          return button
      }()
@@ -195,13 +199,13 @@ class AskPermisionsVS: UIViewController{
         view.addSubview(skipButton)
         
         topLabel.snp.makeConstraints {
-            $0.top.equalTo(view.snp.top).offset(203)
+            $0.top.equalTo(view.snp.top).offset(189)
             $0.left.equalTo(view.snp.left).offset(147)
             $0.height.width.equalTo(80)
         }
         
         permisionText.snp.makeConstraints {
-            $0.top.equalTo(topLabel.snp.bottom).offset(52)
+            $0.top.equalTo(topLabel.snp.bottom).offset(30)
             $0.left.equalToSuperview().offset(52)
             $0.height.equalTo(131)
             $0.width.equalTo(271)
@@ -210,13 +214,13 @@ class AskPermisionsVS: UIViewController{
         
         askButton.snp.makeConstraints {
             $0.bottom.equalTo(skipButton.snp.top).offset(-20)
-            $0.left.equalToSuperview().offset(40)
-            $0.right.equalToSuperview().offset(-40)
-            $0.height.equalTo(50)
+            $0.height.equalTo(60)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(271)
         }
         
         skipButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-150)
+            $0.bottom.equalToSuperview().offset(-120)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(20)
         }

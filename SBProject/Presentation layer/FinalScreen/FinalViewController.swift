@@ -168,7 +168,6 @@ class FinalViewController: UIViewController {
         questionLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)
             make.top.equalTo(topLabel.snp.bottom).offset(14)
-            make.height.equalTo(48)
             make.width.equalTo(271)
         }
         

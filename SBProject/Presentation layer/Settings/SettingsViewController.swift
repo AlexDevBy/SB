@@ -25,24 +25,26 @@ class SettingsViewController: UIViewController {
     var settingsLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        label.font = AppFont.markProFont(ofSize: 24, weight: .black)
+        label.font = AppFont.markProFont(ofSize: 24, weight: .bold)
         label.text = "Settings"
         return label
     }()
     
     let feedbackButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Send feedback", for: .normal)
         button.titleLabel?.font = AppFont.markProFont(ofSize: 16, weight: .medium)
+        button.tintColor = UIColor.white
         button.tag = 2
         button.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
         return button
     }()
     
     let privacyButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Privacy policy", for: .normal)
         button.titleLabel?.font = AppFont.markProFont(ofSize: 16, weight: .medium)
+        button.tintColor = UIColor.white
         button.tag = 3
         button.addTarget(self, action: #selector(buttonTap), for: .touchUpInside)
         return button
@@ -120,12 +122,12 @@ class SettingsViewController: UIViewController {
         }
         
         privacyButton.snp.makeConstraints { make in
-            make.top.equalTo(feedbackButton.snp.bottom).offset(13)
+            make.top.equalTo(feedbackButton.snp.bottom).offset(7)
             make.left.equalTo(settingsLabel.snp.left)
         }
         
         termsButton.snp.makeConstraints { make in
-            make.top.equalTo(privacyButton.snp.bottom).offset(13)
+            make.top.equalTo(privacyButton.snp.bottom).offset(7)
             make.left.equalTo(settingsLabel.snp.left)
         }
     }

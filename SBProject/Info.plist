@@ -9,6 +9,10 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Montserrat-Medium.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+		<string>Montserrat-ExtraBold.ttf</string>
+		<string>Montserrat-Bold.ttf</string>
 		<string>MarkPro-Regular.ttf</string>
 		<string>MarkPro-Medium.ttf</string>
 		<string>MarkPro-Heavy.ttf</string>

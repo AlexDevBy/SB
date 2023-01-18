@@ -62,6 +62,15 @@
         "revision" : "f66bcd04088582c8fbb5cb8554d577e303bae396",
         "version" : "5.3.0"
       }
+    },
+    {
+      "identity" : "uifontcomplete",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Nirma/UIFontComplete.git",
+      "state" : {
+        "revision" : "bf1ae54229b49c5e012d2ef8ec356f9bafcb55c3",
+        "version" : "6.1.0"
+      }
     }
   ],
   "version" : 2

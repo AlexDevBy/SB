@@ -111,6 +111,15 @@
 		F0B3C6E42978094C00738585 /* AppleAuthParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3C6DF2978094C00738585 /* AppleAuthParser.swift */; };
 		F0B3C6E62978243400738585 /* EnterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3C6E52978243400738585 /* EnterModel.swift */; };
 		F0B3C6E82978246E00738585 /* LaunchScreenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3C6E72978246E00738585 /* LaunchScreenModel.swift */; };
+		F0B3C6F92978766800738585 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0B3C6F229786B7300738585 /* Montserrat-Bold.ttf */; };
+		F0B3C6FA2978766A00738585 /* Montserrat-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0B3C6F529786B9700738585 /* Montserrat-ExtraBold.ttf */; };
+		F0B3C6FB2978766D00738585 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0B3C6F329786B8500738585 /* Montserrat-Regular.ttf */; };
+		F0B3C6FC2978766F00738585 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0B3C6F429786B8D00738585 /* Montserrat-Medium.ttf */; };
+		F0B3C6FD2978767200738585 /* MarkPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F05D2CA2297610C4001284E3 /* MarkPro-Regular.ttf */; };
+		F0B3C6FE2978767400738585 /* MarkPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F05D2CA0297610C4001284E3 /* MarkPro-Medium.ttf */; };
+		F0B3C6FF2978767600738585 /* MarkPro-Heavy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F05D2CA3297610C4001284E3 /* MarkPro-Heavy.ttf */; };
+		F0B3C7002978767900738585 /* MarkPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F05D2CA1297610C4001284E3 /* MarkPro-Bold.ttf */; };
+		F0B3C7032978804D00738585 /* Montserrat-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0B3C7022978804D00738585 /* Montserrat-Black.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -219,6 +228,11 @@
 		F0B3C6DF2978094C00738585 /* AppleAuthParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleAuthParser.swift; sourceTree = "<group>"; };
 		F0B3C6E52978243400738585 /* EnterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterModel.swift; sourceTree = "<group>"; };
 		F0B3C6E72978246E00738585 /* LaunchScreenModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenModel.swift; sourceTree = "<group>"; };
+		F0B3C6F229786B7300738585 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		F0B3C6F329786B8500738585 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		F0B3C6F429786B8D00738585 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		F0B3C6F529786B9700738585 /* Montserrat-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBold.ttf"; sourceTree = "<group>"; };
+		F0B3C7022978804D00738585 /* Montserrat-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +647,11 @@
 				F05D2CA3297610C4001284E3 /* MarkPro-Heavy.ttf */,
 				F05D2CA0297610C4001284E3 /* MarkPro-Medium.ttf */,
 				F05D2CA2297610C4001284E3 /* MarkPro-Regular.ttf */,
+				F0B3C6F229786B7300738585 /* Montserrat-Bold.ttf */,
+				F0B3C7022978804D00738585 /* Montserrat-Black.ttf */,
+				F0B3C6F529786B9700738585 /* Montserrat-ExtraBold.ttf */,
+				F0B3C6F329786B8500738585 /* Montserrat-Regular.ttf */,
+				F0B3C6F429786B8D00738585 /* Montserrat-Medium.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -720,6 +739,7 @@
 				F092E03C2976F8F70060D25D /* XCRemoteSwiftPackageReference "Alamofire" */,
 				F092E0412976F9C80060D25D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				F092E0572976FDBA0060D25D /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				F0B3C6F629786FC000738585 /* XCRemoteSwiftPackageReference "UIFontComplete" */,
 			);
 			productRefGroup = F05D2C0029760E9B001284E3 /* Products */;
 			projectDirPath = "";
@@ -735,6 +755,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0B3C7002978767900738585 /* MarkPro-Bold.ttf in Resources */,
+				F0B3C6FB2978766D00738585 /* Montserrat-Regular.ttf in Resources */,
+				F0B3C6FA2978766A00738585 /* Montserrat-ExtraBold.ttf in Resources */,
+				F0B3C6FE2978767400738585 /* MarkPro-Medium.ttf in Resources */,
+				F0B3C6FF2978767600738585 /* MarkPro-Heavy.ttf in Resources */,
+				F0B3C7032978804D00738585 /* Montserrat-Black.ttf in Resources */,
+				F0B3C6FD2978767200738585 /* MarkPro-Regular.ttf in Resources */,
+				F0B3C6F92978766800738585 /* Montserrat-Bold.ttf in Resources */,
+				F0B3C6FC2978766F00738585 /* Montserrat-Medium.ttf in Resources */,
 				F05D2C0F29760E9D001284E3 /* LaunchScreen.storyboard in Resources */,
 				F05D2C0C29760E9D001284E3 /* Assets.xcassets in Resources */,
 				F05D2C0A29760E9B001284E3 /* Main.storyboard in Resources */,
@@ -1114,6 +1143,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		F0B3C6F629786FC000738585 /* XCRemoteSwiftPackageReference "UIFontComplete" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Nirma/UIFontComplete.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -44,6 +44,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         takeAChance.font = AppFont.markProFont(ofSize: 18, weight: .bold)
         takeAChance.text = "Take a chance"
         takeAChance.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        takeAChance.backgroundColor = .clear
+        
         
         yesNo.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         yesNo.font = AppFont.markProFont(ofSize: 12, weight: .regular)
@@ -55,8 +57,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let yesRange = (text as NSString).range(of: "yes")
         let noRange = (text as NSString).range(of: "no")
         
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 12), range: yesRange)
-        attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.boldSystemFont(ofSize: 12), range: noRange)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: AppFont.markProFont(ofSize: 12, weight: .bold), range: yesRange)
+        attributedString.addAttribute(NSAttributedString.Key.font, value: AppFont.markProFont(ofSize: 12, weight: .bold), range: noRange)
         yesNo.attributedText = attributedString
         
         label.addSubview(back)
@@ -73,13 +75,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         takeAChance.snp.makeConstraints { make in
             make.top.equalTo(back.snp.top).offset(23)
-            make.bottom.equalTo(back.snp.bottom).offset(-55)
             make.left.equalTo(back.snp.left).offset(20.44)
         }
         
         yesNo.snp.makeConstraints { make in
             make.top.equalTo(takeAChance.snp.bottom).offset(2)
-            make.bottom.equalTo(back.snp.bottom).offset(-22)
             make.left.equalTo(takeAChance.snp.left)
         }
         
@@ -112,8 +112,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 20
-        layout.minimumInteritemSpacing = 11
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
@@ -129,7 +129,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         layer.colors = [ UIColor(red: 0.247, green: 0.725, blue: 1, alpha: 1).cgColor,
                          UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor ]
         layer.locations = [0, 1]
-        layer.startPoint = CGPoint(x: 0.25, y: 0.5)
+        layer.startPoint = CGPoint(x: 0.0, y: 0.0)
         layer.endPoint = CGPoint(x: 0.75, y: 0.5)
         layer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: -1, c: 1, d: 0, tx: 0, ty: 1))
         layer.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
@@ -142,6 +142,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let button = UIButton()
         button.addTarget(self, action: #selector(assessTapped), for: .touchUpInside)
         button.setTitle("Assess the chance", for: .normal)
+        button.titleLabel?.font = AppFont.markProFont(ofSize: 18, weight: .bold)
         button.backgroundColor = UIColor(hexString: "#262F68")
         return button
     }()
@@ -280,7 +281,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             make.top.equalTo(nutsView.snp.bottom).offset(27.7)
             make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
             make.width.equalTo(255)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
         }
         
         collectionView.snp.makeConstraints { make in
@@ -288,7 +289,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 //            make.right.equalTo(labelContainer.snp.right)
             make.centerX.equalTo(labelContainer.snp.centerX)
             make.width.equalTo(labelContainer.snp.width)
-            make.top.equalTo(labelContainer.snp.bottom).offset(17)
+            make.top.equalTo(labelContainer.snp.bottom).offset(1)
             make.bottom.equalTo(view.snp.bottom)
             
         }

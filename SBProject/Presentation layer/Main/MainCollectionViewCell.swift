@@ -10,6 +10,8 @@ import SnapKit
 
 class MainCollectionViewCell: UICollectionViewCell {
     
+    let cellId = "cell"
+    
     let questionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Montserrat-Bold", size: 12)
@@ -40,16 +42,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    let cellId = "cell"
-    
-    var heightOfCell: CGFloat = 0.0 {
-        
-        didSet {
-            print(heightOfCell)
-           
-        }
-    }
-    
+    //    MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -57,44 +50,16 @@ class MainCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func heightForView(text:String, font:UIFont, width:CGFloat) -> CGFloat{
-         let label:UILabel = UILabel(frame: CGRectMake(0, 0, width, CGFloat.greatestFiniteMagnitude))
-         label.numberOfLines = 0
-         label.lineBreakMode = NSLineBreakMode.byWordWrapping
-         label.font = font
-         label.text = text
-
-         label.sizeToFit()
-         return label.frame.height
-     }
-    
-  
-    
+    //    MARK: configure
     func configure(with model: Question) {
-//        guard model.question != nil else { return }
-//        guard model.yes != nil else { return }
-//        guard model.no != nil else { return }
-        self.heightOfCell = heightForView(text: "\(String(model.question))", font: self.questionLabel.font, width: 271)
-        
         self.questionLabel.text = "\(String(model.question))"
         self.YesLabel.text = "\(String(format: "%.2f", model.yes))"
         self.NoLabel.text = "\(String(format: "%.2f", model.no))"
-        
-        
-
     }
     
-//    func setText(_ text: String) {
-//            label.text = text
-//            // Determine the size of the cell based on the text entered
-//            let size = determineSize(for: text)
-//            // Update the layout of the cell with the new size
-//            updateLayout(with: size)
-//        }
-    
-    
+    //    MARK: addViews
     func addViews(){
-
+        
         addSubview(questionLabel)
         addSubview(YesLabel)
         addSubview(NoLabel)
