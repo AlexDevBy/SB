@@ -11,7 +11,8 @@ enum Endpoint: RestEndpoint {
     case country
     case link
     case geoApi(category: String, filter: String, limit: Int, apiKey: String)
-    
+
+
     var server: Server {
         switch self {
         case .country, .link:
@@ -20,25 +21,25 @@ enum Endpoint: RestEndpoint {
             return PixpotServers.geo
         }
     }
-    
+
     var path: String {
         switch self {
         case .country:
             return "/api/getCountry"
         case .link:
-            return "/user/auth.json"
+            return "/trs/get.json"
         case .geoApi:
             return "places"
         }
     }
-    
+
     var httpMethod: HTTPMethod {
         switch self {
         case .country, .link, .geoApi:
             return .get
         }
     }
-    
+
     var auth: AuthType {
         switch self {
         case .country:
@@ -49,7 +50,7 @@ enum Endpoint: RestEndpoint {
             return .optionalBearer
         }
     }
-    
+
     var params: Parameters {
         switch self {
         case .country, .link:
@@ -63,7 +64,7 @@ enum Endpoint: RestEndpoint {
             ]
         }
     }
-    
+
     var encodingDestination: URLEncoding.Destination {
         switch self {
         case .country:
@@ -74,13 +75,13 @@ enum Endpoint: RestEndpoint {
             return .queryString
         }
     }
-    
+
     var encoding: ParameterEncoding {
         switch self {
         case .country, .link, .geoApi:
             return URLEncoding.default
         }
     }
-    
-    
+
+
 }

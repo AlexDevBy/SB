@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol ParameterEncoding {
-	func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest
+	func encode(_ urlRequest: URLRequestConvertible1, with parameters: Parameters?) throws -> URLRequest
 }
 
 public struct URLEncoding: ParameterEncoding {
@@ -69,7 +69,7 @@ public struct URLEncoding: ParameterEncoding {
 		self.boolEncoding = boolEncoding
 	}
 
-	public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+	public func encode(_ urlRequest: URLRequestConvertible1, with parameters: Parameters?) throws -> URLRequest {
 		var urlRequest = try urlRequest.asURLRequest()
 
 		guard let parameters = parameters else { return urlRequest }
@@ -145,7 +145,7 @@ public struct JSONEncoding: ParameterEncoding {
 		self.options = options
 	}
 
-	public func encode(_ urlRequest: URLRequestConvertible, with parameters: Parameters?) throws -> URLRequest {
+	public func encode(_ urlRequest: URLRequestConvertible1, with parameters: Parameters?) throws -> URLRequest {
 		var urlRequest = try urlRequest.asURLRequest()
 
 		guard let parameters = parameters else { return urlRequest }

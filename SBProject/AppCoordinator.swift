@@ -81,7 +81,7 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     private func performWebViewFlow(link: String) {
-        let webView = WebViewController(site: link, title: "some title", withExitButton: false, withBackButton: false)
+        let webView = WebViewController(site: link, title: "Welcome back", withExitButton: false, withBackButton: false)
         webView.modalPresentationStyle = .fullScreen
         router.setRoot(webView, animated: false)
     }

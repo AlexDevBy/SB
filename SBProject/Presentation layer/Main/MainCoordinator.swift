@@ -33,6 +33,30 @@ final class MainCoordinator: BaseCoordinator {
         showMainScreen()
     }
 
+    private func showMainScreen() {
+        let page = moduleFactory.makeMainModule()
+        page.modalPresentationStyle = .fullScreen
+        self.router.setRoot(page, animated: false)
+        
+//        page.showQuestionVS = {
+//            let questionVC = QuestionViewControlle()
+//            self.router.push(questionVC)
+//            
+//            questionVC.beginTapped1 = { data in
+//                self.router.dismiss(animated: false)
+//                self.show3()
+//            }
+//        }
+        
+    }
+    
+    
+    
+//    func show3() {
+//        let finalVC = FinalViewController()
+//        self.router.push(finalVC)
+//
+//    }
     // MARK: - Private Methods
 //    private func askPermisions() {
 //        var type: PermissionsType
@@ -80,12 +104,4 @@ final class MainCoordinator: BaseCoordinator {
 //         }
 
     // MARK: -
-    private func showMainScreen() {
-        let Page = moduleFactory.makeMainModule()
-        Page.modalPresentationStyle = .fullScreen
-        self.router.setRoot(Page, animated: false)
-        
-        
-        
-    }
 }

@@ -7,22 +7,22 @@
 
 import Foundation
 
-public protocol URLConvertible {
+public protocol URLConvertible1 {
 	func asURL() throws -> URL
 }
 
-extension String: URLConvertible {
+extension String: URLConvertible1 {
 	public func asURL() throws -> URL {
 		guard let url = URL(string: self) else { throw NCRESTError.invalidURL(url: self) }
 		return url
 	}
 }
 
-extension URL: URLConvertible {
+extension URL: URLConvertible1 {
 	public func asURL() throws -> URL { self }
 }
 
-extension URLComponents: URLConvertible {
+extension URLComponents: URLConvertible1 {
 	public func asURL() throws -> URL {
 		guard let url = url else { throw NCRESTError.invalidURL(url: self) }
 
@@ -30,14 +30,14 @@ extension URLComponents: URLConvertible {
 	}
 }
 
-public protocol URLRequestConvertible {
+public protocol URLRequestConvertible1 {
 	func asURLRequest() throws -> URLRequest
 }
 
-extension URLRequestConvertible {
+extension URLRequestConvertible1 {
 	public var urlRequest: URLRequest? { try? asURLRequest() }
 }
 
-extension URLRequest: URLRequestConvertible {
+extension URLRequest: URLRequestConvertible1 {
 	public func asURLRequest() throws -> URLRequest { self }
 }

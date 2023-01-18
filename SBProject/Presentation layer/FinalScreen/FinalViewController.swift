@@ -12,6 +12,8 @@ import SnapKit
 
 class FinalViewController: UIViewController {
     
+    var presenterDelegate: PresenterDelegate? = nil
+    
     var backButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "backButton"), for: .normal)
@@ -129,7 +131,9 @@ class FinalViewController: UIViewController {
         }
     
     @objc func gotItTapped() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.dismiss(animated: true, completion: {
+            self.presenterDelegate?.popToPrevious()
+        })
     }
     
     

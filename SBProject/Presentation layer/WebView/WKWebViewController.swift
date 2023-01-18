@@ -19,7 +19,7 @@ class WebViewController: UIViewController {
     
     private let bottomView: UIView = {
         let view = UIView()
-        view.backgroundColor = AppColors.darkBlue
+        view.backgroundColor = UIColor(hexString: "#63B7F8")
         return view
     }()
     private let exitButton: UIButton = {
@@ -64,8 +64,8 @@ class WebViewController: UIViewController {
 
     
     private func setupView() {
-        view.backgroundColor = AppColors.white
-        navigationController?.navigationBar.barTintColor = AppColors.darkBlue
+        view.backgroundColor = UIColor(hexString: "#63B7F8")
+        navigationController?.navigationBar.barTintColor = UIColor(hexString: "#63B7F8")
         webView.navigationDelegate = self
         view.addSubview(webView)
         view.addSubview(bottomView)
@@ -85,7 +85,7 @@ class WebViewController: UIViewController {
             button.setImage(UIImage(named: "ArrowLeft")?.withRenderingMode(.alwaysOriginal), for: .normal)
             button.setTitle("Back", for: .normal)
             button.sizeToFit()
-            button.tintColor = AppColors.darkBlue
+            button.tintColor = UIColor(hexString: "#63B7F8")
             navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
             button.addTarget(self, action: #selector(goBack), for: .touchUpInside)
         } else {

@@ -9,7 +9,11 @@ import Foundation
 import UIKit
 import SnapKit
 
-class QuestionViewControlle: UIViewController, UITextFieldDelegate {
+protocol PresenterDelegate {
+    func popToPrevious()
+}
+
+class QuestionViewControlle: UIViewController, UITextFieldDelegate, PresenterDelegate {
     
     
     
@@ -133,11 +137,22 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate {
     let privacyLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        label.backgroundColor = .clear
         label.font = AppFont.markProFont(ofSize: 10, weight: .medium)
-        label.numberOfLines = 0
-        label.lineBreakMode = .byWordWrapping
-        label.text = "I consent to the Privacy Policy\nand Terms of Service."
-        
+        label.text = "I consent to the Privacy Policy \nand Terms of Service."
+        let text = (label.text)!
+        let underlineAttriString = NSMutableAttributedString(string: text)
+        let termsRange = (text as NSString).range(of: "Terms of Service")
+        let privacyRange = (text as NSString).range(of: "Privacy Policy")
+        underlineAttriString.addAttribute(.foregroundColor, value: UIColor.blue, range: termsRange)
+        underlineAttriString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: privacyRange)
+        label.attributedText = underlineAttriString
+        let tapAction = UITapGestureRecognizer(target: self, action: #selector(tapLabel(gesture:)))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tapAction)
+        //        label.dataDetectorTypes = .link
+        //        label.dataDetectorTypes = .phoneNumber
+        //        label.linkTextAttributes = [ .foregroundColor: UIColor.orange ]
         return label
     }()
     
@@ -168,20 +183,61 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#63B7F8")
         setupUi()
+        makeLinks()
         textField.delegate = self
         initializeHideKeyboard()
         var questionContainer = Manager.shared.loadQuestionArray()
         self.questions = questionContainer
     }
     
+    func makeLinks() {
+
+//        updateTextView(descrLabel: privacyLabel, path: "https://startingapp.website/privacy.html", link: "Privacy Policy")
+//        updateTextView(descrLabel: privacyLabel, path: "https://startingapp.website/terms.html", link: "Terms of Service")
+//        updateTextView(descrLabel: guideLabel, path: "https://startingapp.website/terms.html", link: "the user-generated content guidelines")
+
+//        self.privacyLabel.isUserInteractionEnabled = true
+//        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(tappedOnLabel(_ :)))
+//        tapgesture.numberOfTapsRequired = 1
+//        self.privacyLabel.addGestureRecognizer(tapgesture)
+
+    }
+    
+   
+    
+//    @objc func tappedOnLabel(_ gesture: UITapGestureRecognizer) {
+//        guard let text = self.privacyLabel.text else { return }
+//        let privacyPolicyRange = (text as NSString).range(of: "privacy policy")
+//        let termsAndConditionRange = (text as NSString).range(of: "terms and condition")
+//        if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, targetText: privacyPolicyRange) {
+//            print("user tapped on privacy policy text")
+//        } else if gesture.didTapAttributedTextInLabel(label: self.privacyLabel, targetText: termsAndConditionRange){
+//            print("user tapped on terms and conditions text")
+//        }
+//    }
+    
+    @objc func tapLabel(gesture: UITapGestureRecognizer) {
+            if gesture.didTapAttributedTextInLabel(label: privacyLabel, targetText: "Privacy Policy") {
+                print("Privacy Policy")
+            } else if gesture.didTapAttributedTextInLabel(label: privacyLabel, targetText: "Terms of Service") {
+                print("Terms of Service")
+            } else {
+                print("Tapped none")
+            }
+    }
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func popToPrevious() {
+        self.navigationController?.popViewController(animated: true)
+        }
+    
     @objc func beginTapped() {
-        let final = FinalViewController()
         
+        let final = FinalViewController()
+        final.presenterDelegate = self
         let question = Question()
         guard let textFieldText = self.textField.text else { return }
         question.question = textFieldText
@@ -265,6 +321,15 @@ class QuestionViewControlle: UIViewController, UITextFieldDelegate {
     
     @objc func dismissMyKeyboard(){
         view.endEditing(true)
+    }
+    
+    func updateTextView(descrLabel: UITextView, path: String, link: String) {
+       // let path = "http://mail.ru"
+        let text = descrLabel.text ?? ""
+        let attributedString = NSAttributedString.makeHyperlink(for: path, in: text, as: link)
+        
+        descrLabel.attributedText = attributedString
+        
     }
     
     

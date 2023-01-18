@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,11 +14,11 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sb1" translatesAutoresizingMaskIntoConstraints="NO" id="j37-VG-03Z">
-                                <rect key="frame" x="110" y="339" width="178" height="178"/>
+                                <rect key="frame" x="98.5" y="244.5" width="178" height="178"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="MSc-no-Rg5"/>
                                     <constraint firstAttribute="height" constant="178" id="cMB-FR-aVH"/>
@@ -28,8 +28,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="gay"/>
                         <constraints>
-                            <constraint firstItem="j37-VG-03Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="280" id="Kev-bL-dGo"/>
-                            <constraint firstItem="j37-VG-03Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="110" id="Vdw-cf-n54"/>
+                            <constraint firstItem="j37-VG-03Z" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IGp-vn-MLK"/>
+                            <constraint firstItem="j37-VG-03Z" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="mAw-8X-RJE"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -41,7 +41,7 @@
     <resources>
         <image name="sb1" width="178" height="178"/>
         <namedColor name="gay">
-            <color red="0.38823529411764707" green="0.71764705882352942" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.3880000114440918" green="0.71799999475479126" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
