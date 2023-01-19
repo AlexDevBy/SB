@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-enum BlazrJSONEndPoint: ApiConfiguration {
+enum SBJSONEndPoint: ApiConfiguration {
     case link
     
     var method: HTTPMethod {

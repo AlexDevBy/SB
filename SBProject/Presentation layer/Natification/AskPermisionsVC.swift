@@ -27,10 +27,11 @@ enum PermissionsType {
 }
 
 
-class AskPermisionsVS: UIViewController{
+class AskPermisionsVS: UIViewController {
     
-    
-    let permissionsType: PermissionsType
+    private let networkService: INetworkService
+    private let userInfoService: ISensentiveInfoService
+    private let permissionsType: PermissionsType
     private let locationManager = CLLocationManager()
     var locationService = DeviceLocationService.shared
     private let getLink = PassthroughSubject<String, Never>()
@@ -79,13 +80,13 @@ class AskPermisionsVS: UIViewController{
     
     
     
-    
-    
-    init(permissionsType: PermissionsType) {
+    init(networkService: INetworkService,
+         userInfoService: ISensentiveInfoService,
+         permissionsType: PermissionsType) {
+        self.networkService = networkService
+        self.userInfoService = userInfoService
         self.permissionsType = permissionsType
         super.init(nibName: nil, bundle: nil)
-        
-//        self.permisionText.text = permissionsType.title
     }
     
     required init?(coder: NSCoder) {
@@ -96,6 +97,7 @@ class AskPermisionsVS: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#63B7F8")
+        checkCountry()
         setupUI()
 //        ifLocationIsEnabled()
 
@@ -117,6 +119,25 @@ class AskPermisionsVS: UIViewController{
             
         }
         
+    }
+    
+    private func checkCountry() {
+        getCountry(ip: nil)
+    }
+    
+    private func getCountry(ip: String?) {
+        networkService.getCountry(ip: ip) { [ weak self ] result in
+            guard let strongSelf = self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let launchModel):
+                    strongSelf.userInfoService.saveCountryCode(country: launchModel.countryCode)
+//                    strongSelf.routeToNextScreen(appWay: launchModel.appWay)
+                case .failure(let error):
+                    strongSelf.displayMsg(title: nil, msg: error.textToDisplay)
+                }
+            }
+        }
     }
     
     func ifLocationIsEnabled(){
@@ -246,3 +267,5 @@ class AskPermisionsVS: UIViewController{
 //        return
 //    }
 //}
+
+

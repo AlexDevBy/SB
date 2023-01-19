@@ -40,8 +40,7 @@ class RequestSender: IRequestSender {
                         completionHandler(.failure(NetworkError.responseError(error.localizedDescription)))
                     }
                 }
-            }
+        }
         return request
-        
     }
 }

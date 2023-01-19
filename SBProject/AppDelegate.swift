@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = tokenParts.joined()
         print("Device Token: \(token)")
         rootAssembly.serviceAssembly.userInfoService.saveNotificationToken(token: token)
-        rootAssembly.serviceAssembly.networkService.sendPushToken(token: token)
+        rootAssembly.serviceAssembly.networkService.sendPushToken(token: token, countryCode: rootAssembly.serviceAssembly.userInfoService.getCountry())
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -76,7 +76,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
         let router = Router(rootController: navigationController)
         let moduleFactory = ModuleFactory()
-        let coordinatorFactory = CoordinatorFactory(moduleFactory: moduleFactory)
+        let serviceAssembly = rootAssembly.serviceAssembly
+        let coordinatorFactory = CoordinatorFactory(moduleFactory: moduleFactory, serviceAssembly: serviceAssembly)
         self.appCoordinator = coordinatorFactory.makeApplicationCoordinator(with: router)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

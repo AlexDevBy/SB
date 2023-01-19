@@ -23,9 +23,12 @@ protocol CoordinatorFactoryProtocol {
 final class CoordinatorFactory: CoordinatorFactoryProtocol {
 
     private let moduleFactory: ModuleFactoryProtocol
+    let serviceAssembly: IServiceAssembly
 
-    init(moduleFactory: ModuleFactoryProtocol) {
+    init(moduleFactory: ModuleFactoryProtocol,
+         serviceAssembly: IServiceAssembly) {
         self.moduleFactory = moduleFactory
+        self.serviceAssembly = serviceAssembly
     }
 
 //    func makeMainCoordinator(with router: Router) -> CatalogFoodCoordinator {
@@ -47,7 +50,7 @@ final class CoordinatorFactory: CoordinatorFactoryProtocol {
     
     
     func makeApplicationCoordinator(with router: Router) -> AppCoordinator {
-        return AppCoordinator(router: router, coordinatorFactory: self, modulesFactory: moduleFactory)
+        return AppCoordinator(router: router, coordinatorFactory: self, modulesFactory: moduleFactory, serviceAssembly: serviceAssembly)
     }
 
 //    func makeTabBarCoordinator(with router: Router) -> TabBarCoordinator {

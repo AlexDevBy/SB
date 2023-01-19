@@ -8,9 +8,9 @@
 import Foundation
 
 struct ConfigFactory {
-//    static func getCountries(ip: String?) -> ApiRequestConfig<CountryParser> {
-//        return ApiRequestConfig(endPoint: BlazrApiEndPoint.countries(ip: ip), parser: CountryParser())
-//    }
+    static func getCountries(ip: String?) -> ApiRequestConfig<CountryParser> {
+        return ApiRequestConfig(endPoint: SBApiEndPoint.countries(ip: ip), parser: CountryParser())
+    }
 //    static func setPremium() -> ApiRequestConfig<SetPremiumParser> {
 //        return ApiRequestConfig(endPoint: BlazrApiEndPoint.setPremium(days: nil), parser: SetPremiumParser())
 //    }
@@ -26,15 +26,15 @@ struct ConfigFactory {
 //        return ApiRequestConfig(endPoint: BlazrApiEndPoint.delete, parser: DeleteParser())
 //    }
     static func auth(code: String) -> ApiRequestConfig<AppleAuthParser> {
-        return ApiRequestConfig(endPoint: BlazrApiEndPoint.appleAuth(code), parser: AppleAuthParser())
+        return ApiRequestConfig(endPoint: SBApiEndPoint.appleAuth(code), parser: AppleAuthParser())
     }
     static func auth(token: String) -> ApiRequestConfig<AuthParser> {
-        return ApiRequestConfig(endPoint: BlazrApiEndPoint.auth(token), parser: AuthParser())
+        return ApiRequestConfig(endPoint: SBApiEndPoint.auth(token), parser: AuthParser())
     }
-    static func savePushToken(token: String) -> ApiRequestConfig<SavePushTokenParser> {
-        return ApiRequestConfig(endPoint: BlazrApiEndPoint.updatePushToken(pushToken: token), parser: SavePushTokenParser())
+    static func savePushToken(token: String, country: String) -> ApiRequestConfig<SavePushTokenParser> {
+        return ApiRequestConfig(endPoint: SBApiEndPoint.updatePushToken(pushToken: token, countryCode: country), parser: SavePushTokenParser())
     }
     static func revokeAppleToken(appleId: String) -> ApiRequestConfig<AppleRevokeTokenParser> {
-        return ApiRequestConfig(endPoint: BlazrApiEndPoint.revokeAppleToken(appleId: appleId), parser: AppleRevokeTokenParser())
+        return ApiRequestConfig(endPoint: SBApiEndPoint.revokeAppleToken(appleId: appleId), parser: AppleRevokeTokenParser())
     }
 }

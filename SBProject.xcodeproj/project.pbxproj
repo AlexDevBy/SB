@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F046982629797BA600AF474E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F046982529797BA600AF474E /* UIViewControllerExt.swift */; };
 		F05D2C0329760E9B001284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C0229760E9B001284E3 /* AppDelegate.swift */; };
 		F05D2C0529760E9B001284E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C0429760E9B001284E3 /* SceneDelegate.swift */; };
 		F05D2C0A29760E9B001284E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F05D2C0829760E9B001284E3 /* Main.storyboard */; };
@@ -90,7 +91,7 @@
 		F092E0432976F9C80060D25D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = F092E0422976F9C80060D25D /* SwiftyJSON */; };
 		F092E0452976F9F20060D25D /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E0442976F9F20060D25D /* NetworkError.swift */; };
 		F092E0472976FA210060D25D /* SavePushTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E0462976FA210060D25D /* SavePushTokenParser.swift */; };
-		F092E0492976FAAA0060D25D /* BlazrApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E0482976FAAA0060D25D /* BlazrApiEndPoint.swift */; };
+		F092E0492976FAAA0060D25D /* SBApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E0482976FAAA0060D25D /* SBApiEndPoint.swift */; };
 		F092E04B2976FAE40060D25D /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E04A2976FAE40060D25D /* ApiConstants.swift */; };
 		F092E04D2976FB750060D25D /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E04C2976FB750060D25D /* CoreAssembly.swift */; };
 		F092E04F2976FBA70060D25D /* RequestSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E04E2976FBA60060D25D /* RequestSender.swift */; };
@@ -101,7 +102,7 @@
 		F092E05B2976FE850060D25D /* AppleRevokeTokenParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E05A2976FE850060D25D /* AppleRevokeTokenParser.swift */; };
 		F092E05D297753380060D25D /* extHyperLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E05C297753380060D25D /* extHyperLink.swift */; };
 		F092E05F297757910060D25D /* extGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E05E297757910060D25D /* extGesture.swift */; };
-		F092E061297804A20060D25D /* BlazrJSONEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E060297804A20060D25D /* BlazrJSONEndPoint.swift */; };
+		F092E061297804A20060D25D /* SBJSONEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E060297804A20060D25D /* SBJSONEndPoint.swift */; };
 		F092E063297804C20060D25D /* AppleApiEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = F092E062297804C20060D25D /* AppleApiEndPoint.swift */; };
 		F0B3C6DA2978092900738585 /* LinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3C6D92978092800738585 /* LinkParser.swift */; };
 		F0B3C6E02978094C00738585 /* AuthParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0B3C6DB2978094B00738585 /* AuthParser.swift */; };
@@ -123,6 +124,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F046982529797BA600AF474E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		F05D2BFF29760E9B001284E3 /* SBProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05D2C0229760E9B001284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05D2C0429760E9B001284E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,7 +210,7 @@
 		F092E03F2976F94B0060D25D /* IPars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IPars.swift; sourceTree = "<group>"; };
 		F092E0442976F9F20060D25D /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		F092E0462976FA210060D25D /* SavePushTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavePushTokenParser.swift; sourceTree = "<group>"; };
-		F092E0482976FAAA0060D25D /* BlazrApiEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlazrApiEndPoint.swift; sourceTree = "<group>"; };
+		F092E0482976FAAA0060D25D /* SBApiEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBApiEndPoint.swift; sourceTree = "<group>"; };
 		F092E04A2976FAE40060D25D /* ApiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
 		F092E04C2976FB750060D25D /* CoreAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		F092E04E2976FBA60060D25D /* RequestSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSender.swift; sourceTree = "<group>"; };
@@ -218,7 +220,7 @@
 		F092E05A2976FE850060D25D /* AppleRevokeTokenParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleRevokeTokenParser.swift; sourceTree = "<group>"; };
 		F092E05C297753380060D25D /* extHyperLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extHyperLink.swift; sourceTree = "<group>"; };
 		F092E05E297757910060D25D /* extGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extGesture.swift; sourceTree = "<group>"; };
-		F092E060297804A20060D25D /* BlazrJSONEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlazrJSONEndPoint.swift; sourceTree = "<group>"; };
+		F092E060297804A20060D25D /* SBJSONEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBJSONEndPoint.swift; sourceTree = "<group>"; };
 		F092E062297804C20060D25D /* AppleApiEndPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppleApiEndPoint.swift; sourceTree = "<group>"; };
 		F0B3C6D92978092800738585 /* LinkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkParser.swift; sourceTree = "<group>"; };
 		F0B3C6DB2978094B00738585 /* AuthParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthParser.swift; sourceTree = "<group>"; };
@@ -274,8 +276,8 @@
 				F05D2CC02976130A001284E3 /* SBProject.entitlements */,
 				F05D2C0229760E9B001284E3 /* AppDelegate.swift */,
 				F05D2C0429760E9B001284E3 /* SceneDelegate.swift */,
-				F05D2C162976101E001284E3 /* AppCoordinator.swift */,
 				F092E0532976FCD10060D25D /* RootAssembly.swift */,
+				F05D2C162976101E001284E3 /* AppCoordinator.swift */,
 				F05D2C182976103C001284E3 /* Presentation layer */,
 				F05D2C382976104B001284E3 /* Business Logic Layer */,
 				F05D2C582976106A001284E3 /* Core layer */,
@@ -464,9 +466,9 @@
 			children = (
 				F092E03A2976F8760060D25D /* ApiConfiguration.swift */,
 				F05D2C5F2976106A001284E3 /* Endpoints.swift */,
-				F092E060297804A20060D25D /* BlazrJSONEndPoint.swift */,
+				F092E060297804A20060D25D /* SBJSONEndPoint.swift */,
 				F092E062297804C20060D25D /* AppleApiEndPoint.swift */,
-				F092E0482976FAAA0060D25D /* BlazrApiEndPoint.swift */,
+				F092E0482976FAAA0060D25D /* SBApiEndPoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -627,6 +629,7 @@
 		F05D2CA6297610DC001284E3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F046982529797BA600AF474E /* UIViewControllerExt.swift */,
 				F05D2CA7297610DC001284E3 /* ext Uicolor.swift */,
 				F05D2CA8297610DC001284E3 /* String + Exct.swift */,
 				F05D2CA9297610DC001284E3 /* extens. UserDefaults.swift */,
@@ -779,13 +782,14 @@
 			files = (
 				F092E063297804C20060D25D /* AppleApiEndPoint.swift in Sources */,
 				F092E04B2976FAE40060D25D /* ApiConstants.swift in Sources */,
+				F046982629797BA600AF474E /* UIViewControllerExt.swift in Sources */,
 				F0B3C6E22978094C00738585 /* DeleteParser.swift in Sources */,
 				F092E05F297757910060D25D /* extGesture.swift in Sources */,
 				F05D2C4C2976104C001284E3 /* CountryService.swift in Sources */,
 				F05D2C2D2976103C001284E3 /* WKWebViewController.swift in Sources */,
 				F05D2C702976106A001284E3 /* DefaultsManager.swift in Sources */,
 				F05D2C9729761081001284E3 /* URLRequest+.swift in Sources */,
-				F092E061297804A20060D25D /* BlazrJSONEndPoint.swift in Sources */,
+				F092E061297804A20060D25D /* SBJSONEndPoint.swift in Sources */,
 				F05D2C782976106A001284E3 /* RequestBuilder.swift in Sources */,
 				F05D2C562976104C001284E3 /* BasketEntitie.swift in Sources */,
 				F05D2C352976103C001284E3 /* MainViewController.swift in Sources */,
@@ -846,7 +850,7 @@
 				F0B3C6E42978094C00738585 /* AppleAuthParser.swift in Sources */,
 				F05D2C572976104C001284E3 /* MainEntitie.swift in Sources */,
 				F092E0452976F9F20060D25D /* NetworkError.swift in Sources */,
-				F092E0492976FAAA0060D25D /* BlazrApiEndPoint.swift in Sources */,
+				F092E0492976FAAA0060D25D /* SBApiEndPoint.swift in Sources */,
 				F05D2C4E2976104C001284E3 /* SportStadium.swift in Sources */,
 				F05D2C9229761081001284E3 /* NetworkSessionProvider.swift in Sources */,
 				F05D2C752976106A001284E3 /* ModuleFactory.swift in Sources */,

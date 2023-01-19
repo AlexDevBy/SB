@@ -22,7 +22,7 @@ final class AppCoordinator: BaseCoordinator {
     private let coordinatorFactory: CoordinatorFactory
     private let modulesFactory: ModuleFactoryProtocol
     private let router: Router
-    
+    private let serviceAssembly: IServiceAssembly
     private var launch: LaunchInstructor = .wayVerify
     private let locationService: IDeviceLocationService & DeviceLocationServiceOutput = DeviceLocationService.shared
     private var bag = Set<AnyCancellable>()
@@ -32,11 +32,13 @@ final class AppCoordinator: BaseCoordinator {
     init(
         router: Router,
         coordinatorFactory: CoordinatorFactory,
-        modulesFactory: ModuleFactoryProtocol
+        modulesFactory: ModuleFactoryProtocol,
+        serviceAssembly: IServiceAssembly
     ) {
         self.router = router
         self.modulesFactory = modulesFactory
         self.coordinatorFactory = coordinatorFactory
+        self.serviceAssembly = serviceAssembly
     }
 
     // MARK: - Public Methods
@@ -105,17 +107,16 @@ final class AppCoordinator: BaseCoordinator {
     private func performAskLocation() {
         var type: PermissionsType
         type = .location
-
-        let vc = AskPermisionsVS(permissionsType: type)
+        
+        let vc = AskPermisionsVS(networkService: serviceAssembly.networkService,
+                                 userInfoService: serviceAssembly.userInfoService,
+                                 permissionsType: type)
         self.router.setRoot(vc, animated: false)
-
+        
         vc.skipped = { [weak self] in
             self?.launch = .app
             self?.performFlow()
         }
     }
 }
-
-    
-
 
