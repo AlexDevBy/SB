@@ -83,7 +83,7 @@ func asURLRequest() throws -> URLRequest {
     var items = [URLQueryItem]()
     // Параметры в урле
     switch self {
-    case .auth, .countries, .revokeAppleToken:
+    case .auth, .countries, .appleAuth, .revokeAppleToken:
         if let parameters = parameters {
             for (key, value) in parameters {
                 if let value = value as? String {
@@ -91,7 +91,17 @@ func asURLRequest() throws -> URLRequest {
                 }
             }
         }
-    case .updatePushToken, .appleAuth: break
+    case .updatePushToken:
+        if let parameters = parameters {
+            for (key, value) in parameters {
+                if let value = value as? String {
+                    items.append(URLQueryItem(name: key, value: value))
+                }
+            }
+        }
+        if let token = SecureStorage.shared.getToken() {
+            items.append(URLQueryItem(name: ApiConstants.APIParameterKey.token, value: token))
+        }
     default:
         if let token = SecureStorage.shared.getToken() {
             items.append(URLQueryItem(name: ApiConstants.APIParameterKey.token, value: token))

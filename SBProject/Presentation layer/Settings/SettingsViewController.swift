@@ -79,7 +79,7 @@ class SettingsViewController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         case 2:
             print(sender.tag)
-            self.showWebView(url: "https://startingapp.website", title: "support")
+            self.showWebView(url: "https://startingapp.website/#three", title: "support")
         case 3:
             print(sender.tag)
             self.showWebView(url: "https://startingapp.website/privacy.html", title: "support")

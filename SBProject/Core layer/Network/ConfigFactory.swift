@@ -25,12 +25,12 @@ struct ConfigFactory {
 //    static func deleteProfile() -> ApiRequestConfig<DeleteParser> {
 //        return ApiRequestConfig(endPoint: BlazrApiEndPoint.delete, parser: DeleteParser())
 //    }
-//    static func auth(code: String) -> ApiRequestConfig<AppleAuthParser> {
-//        return ApiRequestConfig(endPoint: BlazrApiEndPoint.appleAuth(code), parser: AppleAuthParser())
-//    }
-//    static func auth(token: String) -> ApiRequestConfig<AuthParser> {
-//        return ApiRequestConfig(endPoint: BlazrApiEndPoint.auth(token), parser: AuthParser())
-//    }
+    static func auth(code: String) -> ApiRequestConfig<AppleAuthParser> {
+        return ApiRequestConfig(endPoint: BlazrApiEndPoint.appleAuth(code), parser: AppleAuthParser())
+    }
+    static func auth(token: String) -> ApiRequestConfig<AuthParser> {
+        return ApiRequestConfig(endPoint: BlazrApiEndPoint.auth(token), parser: AuthParser())
+    }
     static func savePushToken(token: String) -> ApiRequestConfig<SavePushTokenParser> {
         return ApiRequestConfig(endPoint: BlazrApiEndPoint.updatePushToken(pushToken: token), parser: SavePushTokenParser())
     }
