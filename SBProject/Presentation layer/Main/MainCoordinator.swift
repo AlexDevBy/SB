@@ -17,7 +17,7 @@ final class MainCoordinator: BaseCoordinator {
     private let router: Router
     private let moduleFactory: ModuleFactoryProtocol
 //    private var launch: LaunchInstructor = .countryVerify
-    private lazy var container = DIContainer()
+//    private lazy var container = DIContainer()
 
     // MARK: - Initialisers
 

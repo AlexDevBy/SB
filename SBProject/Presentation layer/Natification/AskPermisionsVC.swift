@@ -29,13 +29,10 @@ enum PermissionsType {
 
 class AskPermisionsVS: UIViewController {
     
-    private let networkService: INetworkService
-    private let userInfoService: ISensentiveInfoService
-    private let permissionsType: PermissionsType
-    private let locationManager = CLLocationManager()
-    var locationService = DeviceLocationService.shared
-    private let getLink = PassthroughSubject<String, Never>()
     
+    let permissionsType: PermissionsType
+    let locationManager = CLLocationManager()
+    var locationService = DeviceLocationService.shared
     var skipped: (() -> Void)?
     
     private lazy var topLabel: UIImageView = {
@@ -80,13 +77,11 @@ class AskPermisionsVS: UIViewController {
     
     
     
-    init(networkService: INetworkService,
-         userInfoService: ISensentiveInfoService,
-         permissionsType: PermissionsType) {
-        self.networkService = networkService
-        self.userInfoService = userInfoService
+    init(permissionsType: PermissionsType) {
         self.permissionsType = permissionsType
         super.init(nibName: nil, bundle: nil)
+        
+        self.permisionText.text = permissionsType.title
     }
     
     required init?(coder: NSCoder) {
@@ -96,12 +91,14 @@ class AskPermisionsVS: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor(hexString: "#63B7F8")
-        checkCountry()
+        ifLocationIsEnabled()
         setupUI()
-//        ifLocationIsEnabled()
-
-//        DispatchQueue.main.asyncAfter(deadline: .now() ) {
+        
+       
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
 //            let long = self.locationService.currentLocation?.longitude
 //            print(long ?? "333")
 //        }
@@ -121,24 +118,7 @@ class AskPermisionsVS: UIViewController {
         
     }
     
-    private func checkCountry() {
-        getCountry(ip: nil)
-    }
-    
-    private func getCountry(ip: String?) {
-        networkService.getCountry(ip: ip) { [ weak self ] result in
-            guard let strongSelf = self else { return }
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let launchModel):
-                    strongSelf.userInfoService.saveCountryCode(country: launchModel.countryCode)
-//                    strongSelf.routeToNextScreen(appWay: launchModel.appWay)
-                case .failure(let error):
-                    strongSelf.displayMsg(title: nil, msg: error.textToDisplay)
-                }
-            }
-        }
-    }
+
     
     func ifLocationIsEnabled(){
         DispatchQueue.global().async { [weak self] in
@@ -158,25 +138,8 @@ class AskPermisionsVS: UIViewController {
         }
     }
     
-//    func linkRequest() {
-//            let url = URL(string: "https://pixpot.host/user/auth.json")!
-//            let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//                guard let data = data, error == nil else { return }
-//                do {
-//                    let links = try JSONDecoder().decode([Link].self, from: data)
-//                    for link in links {
-//                        self.getLink.send(link.link)
-//                    }
-//                } catch {
-//                    print(error)
-//                }
-//            }
-//            task.resume()
-//        }
-
     
-    @objc
-    func allowTapped() {
+    @objc func allowTapped() {
         switch permissionsType {
         case .push:
 //            registerForPushNotifications() {
@@ -190,27 +153,6 @@ class AskPermisionsVS: UIViewController {
             locationService.requestLocationUpdates()
         }
     }
-    
-//    private func registerForPushNotifications(completionHandler: @escaping () -> Void) {
-//      UNUserNotificationCenter.current()
-//        .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
-//            completionHandler()
-//            guard granted else { return }
-//            self?.getNotificationSettings()
-//        }
-//    }
-//
-//    private func getNotificationSettings() {
-//      UNUserNotificationCenter.current().getNotificationSettings { settings in
-//        print("Notification settings: \(settings)")
-//          guard settings.authorizationStatus == .authorized else { return }
-//          DispatchQueue.main.async {
-//            UIApplication.shared.registerForRemoteNotifications()
-//          }
-//      }
-//    }
-  
-    
     
     
     func setupUI() {

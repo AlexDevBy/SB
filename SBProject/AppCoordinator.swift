@@ -22,7 +22,7 @@ final class AppCoordinator: BaseCoordinator {
     private let coordinatorFactory: CoordinatorFactory
     private let modulesFactory: ModuleFactoryProtocol
     private let router: Router
-    private let serviceAssembly: IServiceAssembly
+    
     private var launch: LaunchInstructor = .wayVerify
     private let locationService: IDeviceLocationService & DeviceLocationServiceOutput = DeviceLocationService.shared
     private var bag = Set<AnyCancellable>()
@@ -32,13 +32,11 @@ final class AppCoordinator: BaseCoordinator {
     init(
         router: Router,
         coordinatorFactory: CoordinatorFactory,
-        modulesFactory: ModuleFactoryProtocol,
-        serviceAssembly: IServiceAssembly
+        modulesFactory: ModuleFactoryProtocol
     ) {
         self.router = router
         self.modulesFactory = modulesFactory
         self.coordinatorFactory = coordinatorFactory
-        self.serviceAssembly = serviceAssembly
     }
 
     // MARK: - Public Methods
@@ -77,13 +75,13 @@ final class AppCoordinator: BaseCoordinator {
     }
     
     private func performAppFlow() {
-            let mainCoordinator = coordinatorFactory.makeMainCoordinator(with: router)
-            retain(mainCoordinator)
-            mainCoordinator.start()
+        let tabBarCoordinator = coordinatorFactory.makeMainCoordinator(with: router)
+        retain(tabBarCoordinator)
+        tabBarCoordinator.start()
     }
     
     private func performWebViewFlow(link: String) {
-        let webView = WebViewController(site: link, title: "Welcome back", withExitButton: false, withBackButton: false)
+        let webView = WebViewController(site: link, title: "some title", withExitButton: false, withBackButton: false)
         webView.modalPresentationStyle = .fullScreen
         router.setRoot(webView, animated: false)
     }
@@ -107,16 +105,13 @@ final class AppCoordinator: BaseCoordinator {
     private func performAskLocation() {
         var type: PermissionsType
         type = .location
-        
-        let vc = AskPermisionsVS(networkService: serviceAssembly.networkService,
-                                 userInfoService: serviceAssembly.userInfoService,
-                                 permissionsType: type)
+
+        let vc = AskPermisionsVS(permissionsType: type)
         self.router.setRoot(vc, animated: false)
-        
+
         vc.skipped = { [weak self] in
             self?.launch = .app
             self?.performFlow()
         }
     }
 }
-

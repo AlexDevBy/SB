@@ -9,6 +9,7 @@ import Foundation
 
 protocol HelperServiceProtocol {
     func getBroswerLink(_ completion: @escaping ObjCompletion<Result<Link, HelperServiceError>>)
+    func sendPushToken(token: String, country: String, _ completion: @escaping ObjCompletion<Result<PushAnswer, HelperServiceError>>)
 }
 
 enum HelperServiceError: Error {
@@ -16,6 +17,7 @@ enum HelperServiceError: Error {
 }
 
 final class HelperService: HelperServiceProtocol {
+    
     private let apiClient: NetworkProviderProtocol
     
     init(apiClient: NetworkProviderProtocol) {
@@ -35,6 +37,22 @@ final class HelperService: HelperServiceProtocol {
                 debugPrint(error)
                 completion(.failure(.unknown))
             }
+        }
+    }
+    
+    
+    func sendPushToken(token: String, country: String, _ completion: @escaping ObjCompletion<Result<PushAnswer, HelperServiceError>>) {
+        apiClient.request(PushAnswer.self, endpoint: Endpoint.pushNotification(token: token, country: country)) { response in
+            switch response {
+            case .success(let response):
+                 let empty = response
+                print(empty.message)
+                completion(.success(empty))
+            case .failure(let error):
+                debugPrint(error)
+                completion(.failure(.unknown))
+            }
+
         }
     }
     

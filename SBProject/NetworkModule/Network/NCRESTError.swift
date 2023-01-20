@@ -8,6 +8,6 @@
 import Foundation
 
 enum NCRESTError :Error {
-	case invalidURL(url: URLConvertible1)
+	case invalidURL(url: URLConvertible)
 	case parameterEncodingFailed
 }

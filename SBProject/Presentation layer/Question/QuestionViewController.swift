@@ -13,7 +13,7 @@ protocol PresenterDelegate {
     func popToPrevious()
 }
 
-class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDelegate , PresenterDelegate {
+class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate , PresenterDelegate {
     
     
     
@@ -44,7 +44,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
         field.attributedPlaceholder = NSAttributedString(
             string: "Type here your question...",
             attributes: [ NSAttributedString.Key.foregroundColor: UIColor.white,
-              NSAttributedString.Key.font : AppFont.markProFont(ofSize: 15, weight: .bold) ]
+                          NSAttributedString.Key.font : AppFont.markProFont(ofSize: 15, weight: .bold) ]
         )
         return field
     }()
@@ -92,7 +92,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
         return label
     }()
     
- 
+    
     
     let line2: UILabel = {
         let label = UILabel()
@@ -143,7 +143,8 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
         let range = (text as NSString).range(of: text)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: range)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 17, length: 14))
-//        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 17, length: 14))
+        //        attributedString.addAttribute(NSAttributedString.Key.foregroundColor , value: UIColor.white, range: NSRange(location: 17, length: 14))
+        label.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 37, length: 16))
         label.attributedText = attributedString
         label.isUserInteractionEnabled = true
@@ -162,7 +163,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
         let range = (text as NSString).range(of: text)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: range)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 11, length: 38))
-//        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: NSRange(location: 17, length: 14))
+        label.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         label.attributedText = attributedString
         label.isUserInteractionEnabled = true
         label.isEditable = false
@@ -191,7 +192,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
         var questionContainer = Manager.shared.loadQuestionArray()
         self.questions = questionContainer
     }
-
+    
     
     @objc func backTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -199,7 +200,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
     
     func popToPrevious() {
         self.navigationController?.popViewController(animated: true)
-        }
+    }
     
     @objc func beginTapped() {
         
@@ -280,9 +281,9 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-            UIApplication.shared.open(URL)
-            return false
-        }
+        UIApplication.shared.open(URL)
+        return false
+    }
     
     func initializeHideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(
@@ -296,7 +297,7 @@ class QuestionViewControlle: UIViewController, UITextViewDelegate, UITextFieldDe
     }
     
     func updateTextView(descrLabel: UITextView, path: String, link: String) {
-       // let path = "http://mail.ru"
+        // let path = "http://mail.ru"
         let text = descrLabel.text ?? ""
         let attributedString = NSAttributedString.makeHyperlink(for: path, in: text, as: link)
         

@@ -7,97 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FE5700DD-2C5C-40D0-AE28-F95F7D8F4846"
+            uuid = "8B7584EF-53BC-41D2-9C84-AF08A94BA392"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/Main/MainCollectionViewCell.swift"
+            filePath = "SBProject/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "MainCollectionViewCell"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC9C2DA0-3FC0-41E0-ACD9-91144C24E784"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/Main/MainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "application(_:didRegisterForRemoteNotificationsWithDeviceToken:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B1B33BC0-A73F-4AA2-AE4F-465BFF3FBC3A"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/Main/MainViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
-            landmarkName = "collectionView(_:layout:sizeForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "39348F93-6061-4200-B2C5-39B5C8AC6BE2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "getBroswerLink(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "39348F93-6061-4200-B2C5-39B5C8AC6BE2 - 1c6babcca98c292e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SBProject.HelperService.getBroswerLink((Swift.Result&lt;SBProject.Link, SBProject.HelperServiceError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Business%20Logic%20Layer/Services/HelperService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  uuid = "39348F93-6061-4200-B2C5-39B5C8AC6BE2 - 3c40c4777748a5d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;SBProject.Link&gt;, SBProject.SessionProviderError&gt;) -&gt; () in SBProject.HelperService.getBroswerLink((Swift.Result&lt;SBProject.Link, SBProject.HelperServiceError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Business%20Logic%20Layer/Services/HelperService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "124">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

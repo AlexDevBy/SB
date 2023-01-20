@@ -9,7 +9,7 @@ import Foundation
 
 extension URLRequest {
 
-	public init(url: URLConvertible1, method: HTTPMethod, headers: HTTPHeaders? = nil) throws {
+	public init(url: URLConvertible, method: HTTPMethod, headers: HTTPHeaders? = nil) throws {
 		let url = try url.asURL()
 
 		self.init(url: url)

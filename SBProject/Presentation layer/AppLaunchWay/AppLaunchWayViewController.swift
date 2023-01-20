@@ -5,57 +5,91 @@
 //  Created by Vladimir on 16.01.2023.
 //
 
-import UIKit
 
-class AppLaunchWayViewController: UIViewController, UNUserNotificationCenterDelegate {
+import Foundation
+import Combine
 
-    let viewModel: AppLaunchWayViewModelProtocol
+protocol AppLaunchWayViewModelProtocol {
+    func fetchData()
+}
+
+protocol AppLaunchOutput: AnyObject {
+    var appWay: ((LaunchInstructor) -> Void)? { get set }
+}
+
+final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutput {
+    
+    // MARK: - Output
+    var appWay: ((LaunchInstructor) -> Void)?
+
+    // MARK: - Properties
+    private let countryData = PassthroughSubject<CountryEntitie, Never>()
+    private let getLink = PassthroughSubject<String, Never>()
+    private let countryService: CountryServiceProtocol
+    private let helperService: HelperServiceProtocol
+    private var cancellable = Set<AnyCancellable>()
 
     // MARK: - Init
-    init(viewModel: AppLaunchWayViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-        viewModel.fetchData()
+    init(
+        countryService: CountryServiceProtocol,
+        helperService: HelperServiceProtocol
+    ) {
+        self.countryService = countryService
+        self.helperService = helperService
     }
     
+    // MARK: - AppLaunchWayViewModelProtocol
     
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // pull out the buried userInfo dictionary
-        let userInfo = response.notification.request.content.userInfo
+    func fetchData() {
+        sinkData()
+        getCountry()
+    }
+    
+    private func sinkData() {
+        countryData
+            .sink { [weak self] data in
+                guard let self = self else {return}
+                if data.data.tabs == "1" {
+                    self.appWay?(.locationVerify)
+                } else {
+                    self.linkRequest()
+                }
+            }
+            .store(in: &cancellable)
+        
+        getLink
+            .sink { [weak self] link in
+                self?.appWay?(.webView(link))
+            }
+            .store(in: &cancellable)
+    }
+    
+    
+}
 
-        if let customData = userInfo["customData"] as? String {
-            print("Custom data received: \(customData)")
-
-            switch response.actionIdentifier {
-            case UNNotificationDefaultActionIdentifier:
-                // the user swiped to unlock
-                print("Default identifier")
-
-            case "show":
-                // the user tapped our "show more info…" button
-                print("Show more information…")
-
-            default:
-                break
+// MARK: - Public Api
+extension AppLaunchWayViewModel {
+    
+    func getCountry() {
+        countryService.getCountry { [weak self] result in
+            switch result {
+            case .success(let country):
+                self?.countryData.send(country)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
-
-        // you must call the completion handler when you're done
-        completionHandler()
     }
     
-    private func setupView() {
-        view.backgroundColor = UIColor(hexString: "#63B7F8")
-        // TODO: MAKE Launcher
+    func linkRequest() {
+        helperService.getBroswerLink { [weak self] result in
+            switch result {
+            case .success(let link):
+                self?.getLink.send(link.link)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
+    
 }

@@ -1,9 +1,10 @@
 //
 //  AppInfoService.swift
-//  SBProject
+//  Pixpot
 //
-//  Created by Alex Misko on 17.01.23.
+//  Created by Евгений Юнкин on 20.01.23.
 //
+
 
 import Foundation
 
@@ -13,14 +14,12 @@ protocol ISensentiveInfoService: AnyObject {
     func saveAppleToken(token: String)
     func saveNotificationToken(token: String)
 //    func deleteAllInfo(completionBlock: FinishedCompletionHandler)
-//    func isUserInApp() -> Bool
+    func isUserInApp() -> Bool
     func savePremium()
-    func saveCountryCode(country: String)
     func isPremiumActive() -> Bool
     func getAppleToken() -> String?
-//    func wasPushAsked() -> Bool
-//    func changeAskPushValue()
-    func getCountry() -> String
+    func wasPushAsked() -> Bool
+    func changeAskPushValue()
 }
 
 class AppInfoService: ISensentiveInfoService {
@@ -49,22 +48,14 @@ class AppInfoService: ISensentiveInfoService {
         secureStorage.saveAppleToken(token: token)
     }
     
-    func getCountry() -> String {
-        secureStorage.getCountry() ?? ""
-    }
-    
-    func saveCountryCode(country: String) {
-        secureStorage.saveCountry(country: country)
-    }
-    
 //    func deleteAllInfo(completionBlock: (Bool) -> ()) {
 //        changeUserInAppValue(isUserInApp: false)
 //        secureStorage.deleteAllInfo(completionBlock: completionBlock)
 //    }
     
-//    func isUserInApp() -> Bool {
-//        return appSettingsStorage.getUserInAppValue()
-//    }
+    func isUserInApp() -> Bool {
+        return appSettingsStorage.getUserInAppValue()
+    }
     
     func savePremium() {
         secureStorage.savePremium()
@@ -78,19 +69,20 @@ class AppInfoService: ISensentiveInfoService {
         secureStorage.getAppleToken()
     }
     
-//    private func changeUserInAppValue(isUserInApp: Bool) {
-//        appSettingsStorage.changeUserInAppValue(on: isUserInApp)
-//    }
+    private func changeUserInAppValue(isUserInApp: Bool) {
+        appSettingsStorage.changeUserInAppValue(on: isUserInApp)
+    }
     
     func saveNotificationToken(token: String) {
         secureStorage.savePushToken(token: token)
     }
     
-//    func wasPushAsked() -> Bool {
-//        appSettingsStorage.getAskPushValue()
-//    }
+    func wasPushAsked() -> Bool {
+        appSettingsStorage.getAskPushValue()
+    }
     
-//    func changeAskPushValue() {
-//        appSettingsStorage.changePushAsked(value: true)
-//    }
+    func changeAskPushValue() {
+        appSettingsStorage.changePushAsked(value: true)
+    }
 }
+

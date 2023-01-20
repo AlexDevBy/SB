@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let cellId = "cell"
     let settingsVC: UIViewController = SettingsViewController()
-    let questionVC: UIViewController = QuestionViewControlle()
+    let questionVC: UIViewController = QuestionViewController()
     var questions: [Question] = []
     var buttonTapped: (() -> Void)?
     //    private var collectionView: UICollectionView!
@@ -124,17 +124,17 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let gradientView: UIView = {
         let view = UIView()
+        let initialColor = UIColor.clear
+//        let finalColor = UIColor(hexString: "#63B7F8")
+        let finalColor = UIColor.red
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [initialColor.cgColor, finalColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.6)
+        gradientLayer.frame = view.bounds
+//        gradientLayer.type = .axial
+        view.layer.addSublayer(gradientLayer)
         
-        let layer = CAGradientLayer()
-        layer.colors = [ UIColor(red: 0.247, green: 0.725, blue: 1, alpha: 1).cgColor,
-                         UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor ]
-        layer.locations = [0, 1]
-        layer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        layer.endPoint = CGPoint(x: 0.75, y: 0.5)
-        layer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: -1, c: 1, d: 0, tx: 0, ty: 1))
-        layer.bounds = view.bounds.insetBy(dx: -0.5*view.bounds.size.width, dy: -0.5*view.bounds.size.height)
-        layer.position = view.center
-        view.layer.addSublayer(layer)
         return view
     }()
     
@@ -146,7 +146,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         button.backgroundColor = UIColor(hexString: "#262F68")
         return button
     }()
-    
 
     
     override func viewDidLoad() {
@@ -156,26 +155,20 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         let questionContainer = Manager.shared.loadQuestionArray()
         self.questions = questionContainer
         setupCollectionView()
-        chekForEmptyCV()
+        checkForEmptyCV()
         setupUI()
-//        collectionView.reloadData()
     }
 
     private func setupCollectionView() {
           collectionView.dataSource = self
           collectionView.delegate = self
-
-       
-//          let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//          let itemSize = CGSize(width: (view.frame.width), height: 200)
-//          layout.itemSize = itemSize
       }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let questionContainer = Manager.shared.loadQuestionArray()
         self.questions = questionContainer
-        chekForEmptyCV()
+        checkForEmptyCV()
         collectionView.reloadData()
     
     }
@@ -188,7 +181,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
-    func chekForEmptyCV() {
+    func checkForEmptyCV() {
         if questions.count == 0 {
             self.collectionView.isHidden = true
             self.nutsView.isHidden = false
@@ -230,12 +223,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        _ = collectionView.cellForItem(at: indexPath) as! MainCollectionViewCell
-       let text = questions[indexPath.row].question
+        let text = questions[indexPath.row].question
         
         let size = heightForView(text: text, fontSize: 12, width: 271)
         let itemSize = CGSize(width: 271, height: size + 34)
-         return itemSize
+        return itemSize
     }
     
     
@@ -246,7 +238,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         view.addSubview(nutsView)
         view.addSubview(nutsText)
         view.addSubview(collectionView)
-        //        scrollView.addSubview(collectionView)
         view.addSubview(gradientView)
         gradientView.addSubview(assessButton)
         

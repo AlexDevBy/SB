@@ -6,40 +6,46 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Endpoint: RestEndpoint {
     case country
     case link
+    case pushNotification(token: String, country: String)
     case geoApi(category: String, filter: String, limit: Int, apiKey: String)
-
-
+    
     var server: Server {
         switch self {
-        case .country, .link:
-            return PixpotServers.default
+        case .country, .link, .pushNotification:
+            return SBServers.default
         case .geoApi:
-            return PixpotServers.geo
+            return SBServers.geo
+            
         }
     }
-
+    
     var path: String {
         switch self {
         case .country:
             return "/api/getCountry"
         case .link:
-            return "/trs/get.json"
+            return "/user/auth.json"
         case .geoApi:
             return "places"
+        case .pushNotification:
+            return "/api/push/"
         }
     }
-
+//    /?debug=true
     var httpMethod: HTTPMethod {
         switch self {
         case .country, .link, .geoApi:
             return .get
+        case .pushNotification:
+            return .post
         }
     }
-
+    
     var auth: AuthType {
         switch self {
         case .country:
@@ -48,9 +54,11 @@ enum Endpoint: RestEndpoint {
             return .optionalBearer
         case .geoApi:
             return .optionalBearer
+        case .pushNotification:
+            return .optionalBearer
         }
     }
-
+    
     var params: Parameters {
         switch self {
         case .country, .link:
@@ -62,9 +70,14 @@ enum Endpoint: RestEndpoint {
                 "limit": params.limit,
                 "apiKey": params.apiKey
             ]
+        case .pushNotification(let params):
+            return [
+                "token": params.token,
+                "country": params.country
+            ]
         }
     }
-
+    
     var encodingDestination: URLEncoding.Destination {
         switch self {
         case .country:
@@ -73,15 +86,19 @@ enum Endpoint: RestEndpoint {
             return .methodDependent
         case .geoApi:
             return .queryString
+        case .pushNotification:
+            return .httpBody
         }
     }
-
+    
     var encoding: ParameterEncoding {
         switch self {
         case .country, .link, .geoApi:
             return URLEncoding.default
+        case .pushNotification:
+            return JSONEncoding.default
         }
     }
-
-
+    
+    
 }

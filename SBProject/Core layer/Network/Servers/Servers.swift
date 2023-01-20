@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PixpotServers: Server {
+enum SBServers: Server {
     case `default`
     case geo
     

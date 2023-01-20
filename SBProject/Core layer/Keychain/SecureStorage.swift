@@ -1,8 +1,8 @@
 //
 //  SecureStorage.swift
-//  Nacional
+//  Pixpot
 //
-//  Created by Дмитрий Терехин on 27.11.2022.
+//  Created by Евгений Юнкин on 20.01.23.
 //
 
 import Foundation
@@ -16,11 +16,9 @@ protocol ISecureStorage {
     func saveAppleToken(token: String)
     func saveAppleRefreshToken(token: String)
     func getAppleToken() -> String?
-    func saveToken(token: String, completionHandler: FinishedCompletionHandler)
+//    func saveToken(token: String, completionHandler: FinishedCompletionHandler)
     func savePushToken(token: String)
-    func deleteAllInfo(completionBlock: FinishedCompletionHandler)
-    func getCountry() -> String?
-    func saveCountry(country: String)
+//    func deleteAllInfo(completionBlock: FinishedCompletionHandler)
 }
 
 class SecureStorage: ISecureStorage {
@@ -37,25 +35,24 @@ class SecureStorage: ISecureStorage {
         case appleRefreshToken
         case appleToken
         case pushToken
-        case countryCode
         
         var title: String {
             return self.rawValue
         }
     }
     
-    func saveToken(token: String, completionHandler: FinishedCompletionHandler) {
-        keychain.set(token, forKey: Constants.token.title)
-        completionHandler(true)
-    }
+//    func saveToken(token: String, completionHandler: FinishedCompletionHandler) {
+//        keychain.set(token, forKey: Constants.token.title)
+//        completionHandler(true)
+//    }
     
     func getToken() -> String? {
         return keychain.get(Constants.token.title)
     }
     
-    func deleteAllInfo(completionBlock: FinishedCompletionHandler) {
-        completionBlock(keychain.clear())
-    }
+//    func deleteAllInfo(completionBlock: FinishedCompletionHandler) {
+//        completionBlock(keychain.clear())
+//    }
     
     func savePremium() {
         keychain.set(true, forKey: Constants.premium.title)
@@ -63,9 +60,6 @@ class SecureStorage: ISecureStorage {
     
     func premiumIsActive() -> Bool {
         return keychain.getBool(Constants.premium.title) ?? false
-    }
-    func getCountry() -> String? {
-        keychain.get(Constants.countryCode.title)
     }
     
     func saveAppleAccessToken(token: String) {
@@ -83,7 +77,5 @@ class SecureStorage: ISecureStorage {
     func savePushToken(token: String) {
         keychain.set(token, forKey: Constants.pushToken.title)
     }
-    func saveCountry(country: String) {
-        keychain.set(country, forKey: Constants.countryCode.title)
-    }
 }
+

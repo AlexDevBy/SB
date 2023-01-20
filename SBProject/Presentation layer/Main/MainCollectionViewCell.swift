@@ -12,13 +12,21 @@ class MainCollectionViewCell: UICollectionViewCell {
     
     let cellId = "cell"
     
+    let questionLabelContainer: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(hexString: "#00A2FF")
+        return view
+    }()
+    
     let questionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Montserrat-Bold", size: 12)
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.backgroundColor = UIColor(red: 0.002, green: 0.636, blue: 1, alpha: 1).cgColor
+//        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.backgroundColor = UIColor(hexString: "#00A2FF").cgColor
+
         label.numberOfLines = 0
+        
         return label
     }()
     
@@ -60,18 +68,25 @@ class MainCollectionViewCell: UICollectionViewCell {
     //    MARK: addViews
     func addViews(){
         
+        addSubview(questionLabelContainer)
         addSubview(questionLabel)
         addSubview(YesLabel)
         addSubview(NoLabel)
         
-        questionLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+        questionLabelContainer.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.width.equalTo(self)
             make.centerX.equalTo(self)
-                    }
+        }
+        
+        questionLabel.snp.makeConstraints { make in
+            make.top.equalTo(questionLabelContainer.snp.top).offset(10)
+            make.bottom.equalTo(questionLabelContainer.snp.bottom).offset(-24)
+            make.left.equalTo(questionLabelContainer.snp.left).offset(10)
+            make.right.equalTo(questionLabelContainer.snp.right).offset(-10)
+        }
         
         YesLabel.snp.makeConstraints { make in
-           
             make.left.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.5)
             make.height.equalTo(24)
@@ -79,7 +94,6 @@ class MainCollectionViewCell: UICollectionViewCell {
         }
         
         NoLabel.snp.makeConstraints { make in
-           
             make.height.equalTo(24)
             make.right.equalTo(self)
             make.width.equalTo(self).multipliedBy(0.5)

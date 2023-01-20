@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol RestEndpoint: URLRequestConvertible1 {
+public protocol RestEndpoint: URLRequestConvertible {
 	var server: Server { get }
 	var path: String { get }
 	var httpMethod: HTTPMethod { get }

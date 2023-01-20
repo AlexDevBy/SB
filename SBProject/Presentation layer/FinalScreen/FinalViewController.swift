@@ -131,9 +131,10 @@ class FinalViewController: UIViewController {
         }
     
     @objc func gotItTapped() {
-        self.navigationController?.dismiss(animated: true, completion: {
-            self.presenterDelegate?.popToPrevious()
-        })
+//        self.navigationController?.dismiss(animated: true, completion: {
+//            self.presenterDelegate?.popToPrevious()
+//        })
+        navigationController?.popToRootViewController(animated: true)
     }
     
     
