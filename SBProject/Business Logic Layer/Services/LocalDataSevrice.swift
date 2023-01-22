@@ -1,8 +1,8 @@
 //
 //  LocalDataSevrice.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Евгений Юнкин on 17.01.23.
+//  Created by Alex Misko on 17.01.23.
 //
 
 import Foundation

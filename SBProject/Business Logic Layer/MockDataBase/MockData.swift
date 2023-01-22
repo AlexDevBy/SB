@@ -1,8 +1,8 @@
 //
 //  MockData.swift
-//  Sarawan
+//  SBProject
 //
-//  Created by Евгений Юнкин on 23.12.22.
+//  Created by Alex Misko on 23.12.22.
 //
 
 import Foundation

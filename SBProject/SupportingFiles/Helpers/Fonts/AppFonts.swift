@@ -1,8 +1,8 @@
 //
 //  AppFonts.swift
-//  TaskEffectiveMobile
+//  SBProject
 //
-//  Created by Евгений Юнкин on 07.12.22.
+//  Created by Alex Misko on 07.12.22.
 //
 
 import UIKit

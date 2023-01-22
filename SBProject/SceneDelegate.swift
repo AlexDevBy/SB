@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 10.01.23.
 //

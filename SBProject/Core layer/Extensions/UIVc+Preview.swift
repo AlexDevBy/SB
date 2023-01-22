@@ -1,8 +1,8 @@
 //
 //  UIVc+Preview.swift
-//  TaskEffectiveMobile
+//  SBProject
 //
-//  Created by Admin on 10.12.2022.
+//  Created by Alex Misko on 10.12.2022.
 //
 
 import SwiftUI

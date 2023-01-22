@@ -1,6 +1,6 @@
 //
 //  SettingsViewController.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 12.01.23.
 //

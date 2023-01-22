@@ -2,7 +2,7 @@
 //  UIColorHex.swift
 //  TaskEffectiveMobile
 //
-//  Created by Admin on 17.12.2022.
+//  Created by Alex Misko on 17.12.2022.
 //
 
 import UIKit

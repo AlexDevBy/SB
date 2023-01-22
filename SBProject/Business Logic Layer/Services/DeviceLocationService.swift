@@ -1,8 +1,8 @@
 //
 //  DeviceLocationService.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Евгений Юнкин on 14.01.23.
+//  Created by Alex Misko on 14.01.23.
 //
 
 import Foundation

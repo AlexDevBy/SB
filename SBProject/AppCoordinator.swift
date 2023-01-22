@@ -1,6 +1,6 @@
 //
 //  AppCoordinator.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 11.01.23.
 //
@@ -28,7 +28,7 @@ final class AppCoordinator: BaseCoordinator {
     private let locationService: IDeviceLocationService & DeviceLocationServiceOutput = DeviceLocationService.shared
     private var bag = Set<AnyCancellable>()
     private let center = UNUserNotificationCenter.current()
-
+    
     
     // MARK: - Initialisers
     
@@ -112,38 +112,26 @@ final class AppCoordinator: BaseCoordinator {
         center.getNotificationSettings(completionHandler: { settings in
             DispatchQueue.main.async {
                 switch settings.authorizationStatus {
-                case .authorized:
-                    print(".authorized")
-                    self.launch = .app
-                    self.performFlow()
-                case .denied:
-                    print(".authorized, .denied, .provisional, .ephemeral")
-                    self.launch = .app
-                    self.performFlow()
-                case .provisional:
-                    print(".authorized, .denied, .provisional, .ephemeral")
-                    self.launch = .app
-                    self.performFlow()
-                case .ephemeral:
+                case .authorized, .denied, .provisional, .ephemeral:
                     print(".authorized, .denied, .provisional, .ephemeral")
                     self.launch = .app
                     self.performFlow()
                 case .notDetermined:
                     print("not determined, ask user for permission now")
-                    self.performAskPush()
+                    self.performAsk(type: .push)
+                @unknown default:
+                    self.launch = .app
+                    self.performFlow()
                 }
             }
-            
         })
     }
     
     
-    private func performAskPush() {
-        var type: PermissionsType
-        type = .push
+    private func performAsk(type: PermissionsType) {
         
         let vc = AskPermisionsVS(permissionsType: type)
-        self.router.setRootMainThread(vc, animated: false)
+        self.router.setRoot(vc, animated: false)
         
         vc.skipped = { [weak self] in
             self?.launch = .app
@@ -151,5 +139,5 @@ final class AppCoordinator: BaseCoordinator {
         }
     }
     
-
+    
 }

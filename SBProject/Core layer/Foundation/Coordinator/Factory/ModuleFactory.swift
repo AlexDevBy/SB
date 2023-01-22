@@ -1,6 +1,6 @@
 //
 //  BaseCoordinator.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 11.01.23.
 //

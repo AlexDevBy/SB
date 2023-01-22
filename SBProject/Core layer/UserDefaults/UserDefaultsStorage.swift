@@ -1,8 +1,8 @@
 //
 //  UserDefaultsStorage.swift
-//  Blazr
+//  SBProject
 //
-//  Created by Дмитрий Терехин on 07.12.2022.
+//  Created by Alex Misko on 07.12.2022.
 //
 
 import Foundation

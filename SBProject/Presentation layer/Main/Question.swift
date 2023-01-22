@@ -1,6 +1,6 @@
 //
 //  Question.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 14.01.23.
 //

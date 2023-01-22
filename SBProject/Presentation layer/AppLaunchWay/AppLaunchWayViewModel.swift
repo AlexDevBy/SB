@@ -1,8 +1,8 @@
 //
 //  AppLaunchWayViewModel.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Евгений Юнкин on 13.01.23.
+//  Created by Alex Misko on 13.01.23.
 //
 
 
@@ -32,6 +32,5 @@ class AppLaunchWayViewController: UIViewController {
     
     private func setupView() {
         view.backgroundColor = UIColor(hexString: "#63B7F8")
-        // TODO: MAKE Launcher
     }
 }

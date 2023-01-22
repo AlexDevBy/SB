@@ -1,8 +1,8 @@
 //
 //  AppInfoService.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Евгений Юнкин on 20.01.23.
+//  Created by Alex Misko on 20.01.23.
 //
 
 

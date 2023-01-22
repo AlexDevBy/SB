@@ -1,8 +1,8 @@
 //
 //  AppLaunchWayViewController.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Vladimir on 16.01.2023.
+//  Created by Alex Misko on 16.01.2023.
 //
 
 
@@ -43,7 +43,7 @@ final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutpu
         countryData
             .sink { [weak self] data in
                 guard let self = self else {return}
-                if data.data.tabs == "1" {
+                if data.data.tabs == "2" {
                     self.appWay?(.push)
                 } else {
                     self.linkRequest()

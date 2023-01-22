@@ -2,7 +2,7 @@
 //  Button + Publisher.swift
 //  TaskEffectiveMobile
 //
-//  Created by Евгений Юнкин on 14.12.22.
+//  Created by Alex Misko on 14.12.22.
 //
 
 

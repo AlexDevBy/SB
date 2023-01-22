@@ -1,6 +1,6 @@
 //
 //  MainViewController.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 11.01.23.
 //
@@ -9,19 +9,12 @@ import Foundation
 import UIKit
 import SnapKit
 
-
-
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    
     
     let cellId = "cell"
     let settingsVC: UIViewController = SettingsViewController()
-    
     var questions: [Question] = []
     var buttonTapped: (() -> Void)?
-    //    private var collectionView: UICollectionView!
-
     
     
     private lazy var settingButton: UIButton = {
@@ -145,8 +138,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupCollectionView()
         checkForEmptyCV()
         setupUI()
-//        let initialColor = UIColor.clear
-       
     }
     
     override func viewDidLayoutSubviews() {
@@ -167,7 +158,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         self.questions = questionContainer
         checkForEmptyCV()
         collectionView.reloadData()
-    
     }
     
     @objc func assessTapped() {

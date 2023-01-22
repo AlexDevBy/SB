@@ -1,6 +1,6 @@
 //
 //  BaseCoordinator.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 11.01.23.
 //
@@ -33,7 +33,6 @@ class WebViewController: UIViewController {
         view.isHidden = true
         view.backgroundColor = .none
         view.layer.cornerRadius = 10
-//        view.dropShadow()
         return view
     }()
     

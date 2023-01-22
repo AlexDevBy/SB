@@ -1,6 +1,6 @@
 //
 //  QuestionViewControlle.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 12.01.23.
 //
@@ -9,13 +9,11 @@ import Foundation
 import UIKit
 import SnapKit
 
-protocol PresenterDelegate {
-    func popToPrevious()
-}
 
-class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate , PresenterDelegate {
+class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
     
-    
+    var isOn: Bool = false
+    var isOn2: Bool = false
     
     var backButton: UIButton = {
         let button = UIButton()
@@ -36,7 +34,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
         field.backgroundColor = UIColor(hexString: "#7DC5FA")
         field.text = nil
         field.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        //        field.placeholder = "Type here your question..."
         let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
         field.leftViewMode = .always
         field.leftView = spacerView
@@ -92,8 +89,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
         return label
     }()
     
-    
-    
     let line2: UILabel = {
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
@@ -127,10 +122,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
         return button
     }()
     
-    var isOn: Bool = false
-    var isOn2: Bool = false
-    
-    
     let privacyLabel: UITextView = {
         let label = UITextView()
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -143,7 +134,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
         let range = (text as NSString).range(of: text)
         attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: range)
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 17, length: 14))
-        //        attributedString.addAttribute(NSAttributedString.Key.foregroundColor , value: UIColor.white, range: NSRange(location: 17, length: 14))
         label.linkTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         attributedString.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 37, length: 16))
         label.attributedText = attributedString
@@ -198,14 +188,9 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
         self.navigationController?.popViewController(animated: true)
     }
     
-    func popToPrevious() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
     @objc func beginTapped() {
         
         let final = FinalViewController()
-        final.presenterDelegate = self
         let question = Question()
         guard let textFieldText = self.textField.text else { return }
         question.question = textFieldText
@@ -226,13 +211,11 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
     
     @objc func privacyTapped(_ sender: UIButton) {
         isOn.toggle()
-        
         setButtonBackGround(view: sender, on:  UIImage(imageLiteralResourceName: "accessButton"), off:  UIImage(imageLiteralResourceName: "accessButtonTapped"), onOffStatus: isOn)
     }
     
     @objc func guideTapped(_ sender: UIButton) {
         isOn2.toggle()
-        
         setButtonBackGround(view: sender, on:  UIImage(imageLiteralResourceName: "accessButton"), off:  UIImage(imageLiteralResourceName: "accessButtonTapped"), onOffStatus: isOn2)
     }
     
@@ -248,7 +231,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
             print("Button Unpressed")
         }
         checkForBegin()
-        
     }
     
     func checkForBegin() {
@@ -259,7 +241,6 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
             beginButton.backgroundColor = UIColor(hexString: "#626376")
             beginButton.isEnabled = false
         }
-        
         if textField.text!.isEmpty{
             beginButton.backgroundColor = UIColor(hexString: "#626376")
             beginButton.isEnabled = false
@@ -267,9 +248,7 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
         let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
         if !text.isEmpty{
             beginButton.backgroundColor = UIColor(hexString: "#252F6C")
             beginButton.isEnabled = true
@@ -297,17 +276,10 @@ class QuestionViewController: UIViewController, UITextViewDelegate, UITextFieldD
     }
     
     func updateTextView(descrLabel: UITextView, path: String, link: String) {
-        // let path = "http://mail.ru"
         let text = descrLabel.text ?? ""
         let attributedString = NSAttributedString.makeHyperlink(for: path, in: text, as: link)
-        
         descrLabel.attributedText = attributedString
-        
     }
-    
-    
-    
-    
     
     func setupUi() {
         

@@ -1,6 +1,6 @@
 //
 //  BaseCoordinator.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 11.01.23.
 //
@@ -15,7 +15,6 @@ protocol Routable {
     func dismiss(animated: Bool)
     func setRoot(_ viewController: UIViewController, animated: Bool)
     func setRoot(_ viewController: UIViewController, animated: Bool, hideBar: Bool)
-    func setRootMainThread(_ viewController: UIViewController, animated: Bool)
 }
 
 final class Router: Routable {
@@ -49,12 +48,6 @@ final class Router: Routable {
     func setRoot(_ viewController: UIViewController, animated: Bool, hideBar: Bool) {
         rootNavigationController?.setViewControllers([viewController], animated: animated)
         rootNavigationController?.isNavigationBarHidden = hideBar
-    }
-    
-    func setRootMainThread(_ viewController: UIViewController, animated: Bool) {
-        DispatchQueue.main.async {
-            self.setRoot(viewController, animated: animated, hideBar: false)
-        }
-    }
+    }    
 }
 

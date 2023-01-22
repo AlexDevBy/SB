@@ -1,8 +1,8 @@
 //
 //  CountryService.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Евгений Юнкин on 13.01.23.
+//  Created by Alex Misko on 13.01.23.
 //
 
 import Foundation

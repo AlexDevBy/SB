@@ -1,6 +1,6 @@
 //
 //  FinalViewController.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 14.01.23.
 //
@@ -12,15 +12,14 @@ import IronSource
 
 class FinalViewController: UIViewController {
     
-    var presenterDelegate: PresenterDelegate? = nil
     
-    var backButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "backButton"), for: .normal)
-        button.tag = 1
-        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        return button
-    }()
+//    var backButton: UIButton = {
+//        let button = UIButton()
+//        button.setImage(UIImage(named: "backButton"), for: .normal)
+//        button.tag = 1
+//        button.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+//        return button
+//    }()
     
     let topLabel: UILabel = {
        let label = UILabel()
@@ -97,9 +96,6 @@ class FinalViewController: UIViewController {
         return label
     }()
     
-    
-    
-    
     let gotItButton: UIButton = {
         let button = UIButton()
         button.addTarget(self, action: #selector(gotItTapped), for: .touchUpInside)
@@ -114,26 +110,13 @@ class FinalViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor(hexString: "#63B7F8")
         setupUi()
-        
-//        view.layoutIfNeeded()
-        
-//        blueView.snp.makeConstraints { make in
-//            make.top.equalTo(lineView.snp.top).offset(Int(redView.tag))
-//        }
-
-//        UIView.animate(withDuration: 1.0, animations: {
-//             self.view.layoutIfNeeded()
-//        })
     }
     
-    @objc func backTapped() {
-            self.navigationController?.popViewController(animated: true)
-        }
+//    @objc func backTapped() {
+//            self.navigationController?.popViewController(animated: true)
+//        }
     
     @objc func gotItTapped() {
-//        self.navigationController?.dismiss(animated: true, completion: {
-//            self.presenterDelegate?.popToPrevious()
-//        })
         IronSource.showRewardedVideo(with: self)
         navigationController?.popToRootViewController(animated: true)
     }
@@ -141,7 +124,7 @@ class FinalViewController: UIViewController {
     
     func setupUi() {
         
-        view.addSubview(backButton)
+//        view.addSubview(backButton)
         view.addSubview(topLabel)
         view.addSubview(questionLabel)
         view.addSubview(gotItButton)
@@ -154,11 +137,10 @@ class FinalViewController: UIViewController {
         view.addSubview(noLabel)
         
         
-        
-        backButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).offset(52)
-            make.left.equalTo(view.snp.left).offset(30)
-        }
+//        backButton.snp.makeConstraints { make in
+//            make.top.equalTo(view.snp.top).offset(52)
+//            make.left.equalTo(view.snp.left).offset(30)
+//        }
         
         topLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view.snp.centerX)

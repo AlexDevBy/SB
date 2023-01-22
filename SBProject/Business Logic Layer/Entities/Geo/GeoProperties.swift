@@ -1,8 +1,8 @@
 //
 //  GeoProperties.swift
-//  Pixpot
+//  SBProject
 //
-//  Created by Vladimir on 15.01.2023.
+//  Created by Alex Misko on 15.01.2023.
 //
 
 import Foundation

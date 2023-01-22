@@ -1,8 +1,8 @@
 //
 //  ProductEntitie.swift
-//  TaskEffectiveMobile
+//  SBProject
 //
-//  Created by Admin on 09.12.2022.
+//  Created by Alex Misko on 09.12.2022.
 //
 
 import Foundation

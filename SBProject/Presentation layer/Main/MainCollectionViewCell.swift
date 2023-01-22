@@ -1,6 +1,6 @@
 //
 //  MainCollectionViewCell.swift
-//  SB
+//  SBProject
 //
 //  Created by Alex Misko on 12.01.23.
 //
@@ -22,11 +22,8 @@ class MainCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont(name: "Montserrat-Bold", size: 12)
         label.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-//        label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.backgroundColor = UIColor(hexString: "#00A2FF").cgColor
-
         label.numberOfLines = 0
-        
         return label
     }()
     
@@ -53,9 +50,7 @@ class MainCollectionViewCell: UICollectionViewCell {
     //    MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         addViews()
-        
     }
     
     //    MARK: configure
@@ -72,7 +67,7 @@ class MainCollectionViewCell: UICollectionViewCell {
         questionLabelContainer.addSubview(questionLabel)
         questionLabelContainer.addSubview(YesLabel)
         questionLabelContainer.addSubview(NoLabel)
-
+        
         
         questionLabelContainer.snp.makeConstraints { make in
             make.top.equalToSuperview()

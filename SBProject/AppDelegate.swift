@@ -23,36 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ISInitializationDelegate,
     private func setupFrameworks() {
         IronSource.initWithAppKey(Constants.IronAppKey, delegate: self)
     }
-    
-    
-//    func registerForPushNotifications() {
-//        UNUserNotificationCenter.current().delegate = self
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
-//            (granted, error) in
-//            // 1. Check to see if permission is granted
-//            guard granted else { return }
-//            // 2. Attempt registration for remote notifications on the main thread
-//            DispatchQueue.main.async {
-//                UIApplication.shared.registerForRemoteNotifications()
-//            }
-//        }
-//    }
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupFrameworks()
-        //        registerForPushNotifications()
-        //        natificationForEphemeral()
         return true
     }
-    
-    //    func natificationForEphemeral(){
-    //        NotificationCenter.default.addObserver(self, selector: #selector(timeChanged), name: UIApplication.significantTimeChangeNotification , object: nil)
-    //    }
-    //
-    //    @objc func timeChanged() {
-    //        print("App Time Changed")
-    //    }
-    
+
     func initializationDidComplete() {
         ISIntegrationHelper.validateIntegration()
     }
@@ -64,9 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ISInitializationDelegate,
     }
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        
     }
-    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
@@ -84,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ISInitializationDelegate,
                 print(error)
             }
         }
-        
         print(deviceToken)
     }
     
