@@ -15,7 +15,7 @@ protocol Routable {
     func dismiss(animated: Bool)
     func setRoot(_ viewController: UIViewController, animated: Bool)
     func setRoot(_ viewController: UIViewController, animated: Bool, hideBar: Bool)
-
+    func setRootMainThread(_ viewController: UIViewController, animated: Bool)
 }
 
 final class Router: Routable {
@@ -50,6 +50,11 @@ final class Router: Routable {
         rootNavigationController?.setViewControllers([viewController], animated: animated)
         rootNavigationController?.isNavigationBarHidden = hideBar
     }
-
+    
+    func setRootMainThread(_ viewController: UIViewController, animated: Bool) {
+        DispatchQueue.main.async {
+            self.setRoot(viewController, animated: animated, hideBar: false)
+        }
+    }
 }
 

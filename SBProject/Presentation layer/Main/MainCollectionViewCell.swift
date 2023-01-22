@@ -69,9 +69,10 @@ class MainCollectionViewCell: UICollectionViewCell {
     func addViews(){
         
         addSubview(questionLabelContainer)
-        addSubview(questionLabel)
-        addSubview(YesLabel)
-        addSubview(NoLabel)
+        questionLabelContainer.addSubview(questionLabel)
+        questionLabelContainer.addSubview(YesLabel)
+        questionLabelContainer.addSubview(NoLabel)
+
         
         questionLabelContainer.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -80,24 +81,24 @@ class MainCollectionViewCell: UICollectionViewCell {
         }
         
         questionLabel.snp.makeConstraints { make in
-            make.top.equalTo(questionLabelContainer.snp.top).offset(10)
-            make.bottom.equalTo(questionLabelContainer.snp.bottom).offset(-24)
-            make.left.equalTo(questionLabelContainer.snp.left).offset(10)
-            make.right.equalTo(questionLabelContainer.snp.right).offset(-10)
+            make.top.equalTo(questionLabelContainer.snp.top).offset(5)
+            make.bottom.equalTo(YesLabel.snp.top).offset(-5)
+            make.left.equalTo(questionLabelContainer.snp.left).offset(5)
+            make.right.equalTo(questionLabelContainer.snp.right).offset(-5)
         }
         
         YesLabel.snp.makeConstraints { make in
-            make.left.equalTo(self)
+            make.left.equalTo(questionLabelContainer.snp.left)
+            make.bottom.equalTo(questionLabelContainer.snp.bottom)
             make.width.equalTo(self).multipliedBy(0.5)
             make.height.equalTo(24)
-            make.bottom.equalToSuperview()
         }
         
         NoLabel.snp.makeConstraints { make in
-            make.height.equalTo(24)
-            make.right.equalTo(self)
+            make.right.equalTo(questionLabelContainer.snp.right)
+            make.bottom.equalTo(questionLabelContainer.snp.bottom)
             make.width.equalTo(self).multipliedBy(0.5)
-            make.bottom.equalToSuperview()
+            make.height.equalTo(24)
         }
     }
     

@@ -7,28 +7,31 @@
 
 import UIKit
 import Combine
+import UserNotifications
 
 enum LaunchInstructor {
     case wayVerify
     case webView(String)
     case locationVerify
     case app
+    case push
 }
 
 final class AppCoordinator: BaseCoordinator {
-
+    
     // MARK: - Private Properties
-
+    
     private let coordinatorFactory: CoordinatorFactory
     private let modulesFactory: ModuleFactoryProtocol
     private let router: Router
-    
     private var launch: LaunchInstructor = .wayVerify
     private let locationService: IDeviceLocationService & DeviceLocationServiceOutput = DeviceLocationService.shared
     private var bag = Set<AnyCancellable>()
+    private let center = UNUserNotificationCenter.current()
+
     
     // MARK: - Initialisers
-
+    
     init(
         router: Router,
         coordinatorFactory: CoordinatorFactory,
@@ -38,13 +41,13 @@ final class AppCoordinator: BaseCoordinator {
         self.modulesFactory = modulesFactory
         self.coordinatorFactory = coordinatorFactory
     }
-
+    
     // MARK: - Public Methods
-
+    
     override func start() {
         performFlow()
     }
-
+    
     // MARK: - Private Methods
     private func performFlow() {
         switch launch {
@@ -60,6 +63,8 @@ final class AppCoordinator: BaseCoordinator {
             performWebViewFlow(link: link)
         case .app:
             performAppFlow()
+        case .push:
+            performPushVerify()
         }
     }
     
@@ -91,7 +96,8 @@ final class AppCoordinator: BaseCoordinator {
             .sink { [weak self] status in
                 switch status {
                 case .notDetermined:
-                    self?.performAskLocation()
+//                    self?.performAsk(type: .location)
+                    print("notDetermined")
                 case .none:
                     break
                 case .denied, .authorizedAlways, .restricted, .authorizedWhenInUse:
@@ -102,16 +108,45 @@ final class AppCoordinator: BaseCoordinator {
             .store(in: &bag)
     }
     
-    private func performAskLocation() {
+    private func performPushVerify() {
+        center.getNotificationSettings(completionHandler: { settings in
+          switch settings.authorizationStatus {
+          case .authorized:
+            print(".authorized, .denied, .provisional, .ephemeral")
+              self.launch = .app
+              self.performFlow()
+          case .denied:
+            print(".authorized, .denied, .provisional, .ephemeral")
+              self.launch = .app
+              self.performFlow()
+          case .provisional:
+            print(".authorized, .denied, .provisional, .ephemeral")
+              self.launch = .app
+              self.performFlow()
+          case .ephemeral:
+            print(".authorized, .denied, .provisional, .ephemeral")
+              self.launch = .app
+              self.performFlow()
+          case .notDetermined:
+            print("not determined, ask user for permission now")
+              self.performAskPush()
+          }
+        })
+}
+    
+    
+    private func performAskPush() {
         var type: PermissionsType
-        type = .location
-
+        type = .push
+        
         let vc = AskPermisionsVS(permissionsType: type)
-        self.router.setRoot(vc, animated: false)
-
+        self.router.setRootMainThread(vc, animated: false)
+        
         vc.skipped = { [weak self] in
             self?.launch = .app
             self?.performFlow()
         }
     }
+    
+
 }

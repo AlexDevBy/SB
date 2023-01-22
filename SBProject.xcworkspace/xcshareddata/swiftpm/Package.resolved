@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "codablegeojson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/guykogus/CodableGeoJSON.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "67f7d9ce2ad7c809d87f77c428f0a6a058e55668"
+      }
+    },
+    {
+      "identity" : "codablejson",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/guykogus/CodableJSON.git",
+      "state" : {
+        "revision" : "06b9b1552d5265f4b702836eb140dab7e84bd1d1",
+        "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "keychain-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/evgenyneu/keychain-swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "c1fde55798b164cad44b5e23cfa2f0f1ebcd76af"
+      }
+    },
+    {
+      "identity" : "snapkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SnapKit/SnapKit.git",
+      "state" : {
+        "branch" : "develop",
+        "revision" : "58320fe80522414bf3a7e24c88123581dc586752"
+      }
+    },
+    {
+      "identity" : "swiftyuserdefaults",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sunshinejr/SwiftyUserDefaults.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "558c015e49524ebf5031b66980a722a4c225c302"
+      }
+    }
+  ],
+  "version" : 2
+}

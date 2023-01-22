@@ -19,16 +19,16 @@ protocol AppLaunchOutput: AnyObject {
 
 final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutput {
     
-    // MARK: - Output
-    var appWay: ((LaunchInstructor) -> Void)?
-
     // MARK: - Properties
     private let countryData = PassthroughSubject<CountryEntitie, Never>()
     private let getLink = PassthroughSubject<String, Never>()
     private let countryService: CountryServiceProtocol
     private let helperService: HelperServiceProtocol
     private var cancellable = Set<AnyCancellable>()
-
+    
+    // MARK: - Output
+    var appWay: ((LaunchInstructor) -> Void)?
+    
     // MARK: - Init
     init(
         countryService: CountryServiceProtocol,
@@ -39,24 +39,17 @@ final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutpu
     }
     
     // MARK: - AppLaunchWayViewModelProtocol
-    
-    func fetchData() {
-        sinkData()
-        getCountry()
-    }
-    
     private func sinkData() {
         countryData
             .sink { [weak self] data in
                 guard let self = self else {return}
                 if data.data.tabs == "1" {
-                    self.appWay?(.locationVerify)
+                    self.appWay?(.push)
                 } else {
                     self.linkRequest()
                 }
             }
             .store(in: &cancellable)
-        
         getLink
             .sink { [weak self] link in
                 self?.appWay?(.webView(link))
@@ -64,11 +57,10 @@ final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutpu
             .store(in: &cancellable)
     }
     
-    
-}
-
-// MARK: - Public Api
-extension AppLaunchWayViewModel {
+    func fetchData() {
+        sinkData()
+        getCountry()
+    }
     
     func getCountry() {
         countryService.getCountry { [weak self] result in

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
-
+import IronSource
 
 class FinalViewController: UIViewController {
     
@@ -134,6 +134,7 @@ class FinalViewController: UIViewController {
 //        self.navigationController?.dismiss(animated: true, completion: {
 //            self.presenterDelegate?.popToPrevious()
 //        })
+        IronSource.showRewardedVideo(with: self)
         navigationController?.popToRootViewController(animated: true)
     }
     

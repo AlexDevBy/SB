@@ -17,7 +17,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     let cellId = "cell"
     let settingsVC: UIViewController = SettingsViewController()
-    let questionVC: UIViewController = QuestionViewController()
+    
     var questions: [Question] = []
     var buttonTapped: (() -> Void)?
     //    private var collectionView: UICollectionView!
@@ -112,31 +112,24 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 1
-        layout.minimumInteritemSpacing = 1
+        layout.minimumLineSpacing = 11
+        layout.minimumInteritemSpacing = 11
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(MainCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.backgroundColor = .clear
         collectionView.contentMode = .center
+        collectionView.showsVerticalScrollIndicator = false
         return collectionView
     }()
     
     let gradientView: UIView = {
-        let view = UIView()
-        let initialColor = UIColor.clear
-//        let finalColor = UIColor(hexString: "#63B7F8")
-        let finalColor = UIColor.red
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [initialColor.cgColor, finalColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.6)
-        gradientLayer.frame = view.bounds
-//        gradientLayer.type = .axial
-        view.layer.addSublayer(gradientLayer)
-        
+        let screenSize: CGRect = UIScreen.main.bounds
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 196))
         return view
     }()
+    //        let finalColor = UIColor(hexString: "#63B7F8")
+
     
     var assessButton: UIButton = {
         let button = UIButton()
@@ -157,6 +150,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         setupCollectionView()
         checkForEmptyCV()
         setupUI()
+//        let initialColor = UIColor.clear
+        let initialColor = UIColor(hexString: "#63B7F8").withAlphaComponent(0)
+        let finalColor = UIColor(red: 0.247, green: 0.725, blue: 1, alpha: 1)
+        setGradientBackground(view: gradientView, startColor: initialColor, endColor: finalColor)
     }
 
     private func setupCollectionView() {
@@ -174,6 +171,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @objc func assessTapped() {
+        let questionVC: UIViewController = QuestionViewController()
         self.navigationController?.pushViewController(questionVC, animated: true)
     }
     
@@ -230,6 +228,19 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return itemSize
     }
     
+
+    
+    func setGradientBackground(view: UIView, startColor: UIColor, endColor: UIColor) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        gradientLayer.locations = [0, 1]
+        gradientLayer.frame = view.bounds
+        view.layer.addSublayer(gradientLayer)
+    }
+    
+    
     
     private func setupUI() {
         
@@ -253,13 +264,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             make.height.equalTo(118)
         }
         
-//        scrollView.snp.makeConstraints { make in
-//            make.left.equalTo(labelContainer.snp.left)
-//            make.right.equalTo(labelContainer.snp.right)
-//            make.top.equalTo(labelContainer.snp.bottom).offset(17)
-//            make.bottom.equalTo(view.snp.bottom)
-//        }
-        
         nutsView.snp.makeConstraints { make in
             make.top.equalTo(labelContainer.snp.bottom).offset(30)
             make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
@@ -276,8 +280,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
         
         collectionView.snp.makeConstraints { make in
-//            make.left.equalTo(labelContainer.snp.left)
-//            make.right.equalTo(labelContainer.snp.right)
             make.centerX.equalTo(labelContainer.snp.centerX)
             make.width.equalTo(labelContainer.snp.width)
             make.top.equalTo(labelContainer.snp.bottom).offset(1)
@@ -285,11 +287,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             
         }
         
-        
         gradientView.snp.makeConstraints { make in
             make.left.equalTo(view.snp.left)
             make.right.equalTo(view.snp.right)
-            make.top.equalTo(view.snp.bottom).offset(-196)
+            
+            make.height.equalTo(196)
             make.bottom.equalTo(view.snp.bottom)
         }
         
