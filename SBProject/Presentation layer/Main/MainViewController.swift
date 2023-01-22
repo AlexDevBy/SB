@@ -123,13 +123,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return collectionView
     }()
     
-    let gradientView: UIView = {
-        let screenSize: CGRect = UIScreen.main.bounds
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: 196))
-        return view
-    }()
-    //        let finalColor = UIColor(hexString: "#63B7F8")
-
+    let gradientView = UIView()
+    
     
     var assessButton: UIButton = {
         let button = UIButton()
@@ -151,6 +146,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         checkForEmptyCV()
         setupUI()
 //        let initialColor = UIColor.clear
+       
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let initialColor = UIColor(hexString: "#63B7F8").withAlphaComponent(0)
         let finalColor = UIColor(red: 0.247, green: 0.725, blue: 1, alpha: 1)
         setGradientBackground(view: gradientView, startColor: initialColor, endColor: finalColor)
@@ -230,12 +230,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
 
     
-    func setGradientBackground(view: UIView, startColor: UIColor, endColor: UIColor) {
+    func setGradientBackground(view: UIView, startColor: UIColor, endColor: UIColor)  {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
         gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.locations = [0, 1]
+        gradientLayer.locations = [0, 1, 0]
         gradientLayer.frame = view.bounds
         view.layer.addSublayer(gradientLayer)
     }
@@ -250,7 +250,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         view.addSubview(nutsText)
         view.addSubview(collectionView)
         view.addSubview(gradientView)
-        gradientView.addSubview(assessButton)
+        view.addSubview(assessButton)
         
         settingButton.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).offset(52)

@@ -110,29 +110,32 @@ final class AppCoordinator: BaseCoordinator {
     
     private func performPushVerify() {
         center.getNotificationSettings(completionHandler: { settings in
-          switch settings.authorizationStatus {
-          case .authorized:
-            print(".authorized, .denied, .provisional, .ephemeral")
-              self.launch = .app
-              self.performFlow()
-          case .denied:
-            print(".authorized, .denied, .provisional, .ephemeral")
-              self.launch = .app
-              self.performFlow()
-          case .provisional:
-            print(".authorized, .denied, .provisional, .ephemeral")
-              self.launch = .app
-              self.performFlow()
-          case .ephemeral:
-            print(".authorized, .denied, .provisional, .ephemeral")
-              self.launch = .app
-              self.performFlow()
-          case .notDetermined:
-            print("not determined, ask user for permission now")
-              self.performAskPush()
-          }
+            DispatchQueue.main.async {
+                switch settings.authorizationStatus {
+                case .authorized:
+                    print(".authorized")
+                    self.launch = .app
+                    self.performFlow()
+                case .denied:
+                    print(".authorized, .denied, .provisional, .ephemeral")
+                    self.launch = .app
+                    self.performFlow()
+                case .provisional:
+                    print(".authorized, .denied, .provisional, .ephemeral")
+                    self.launch = .app
+                    self.performFlow()
+                case .ephemeral:
+                    print(".authorized, .denied, .provisional, .ephemeral")
+                    self.launch = .app
+                    self.performFlow()
+                case .notDetermined:
+                    print("not determined, ask user for permission now")
+                    self.performAskPush()
+                }
+            }
+            
         })
-}
+    }
     
     
     private func performAskPush() {

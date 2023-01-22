@@ -95,7 +95,7 @@ class AskPermisionsVS: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(hexString: "#63B7F8")
-        ifLocationIsEnabled()
+//        ifLocationIsEnabled()
         setupUI()
         
     }
@@ -103,13 +103,14 @@ class AskPermisionsVS: UIViewController, UNUserNotificationCenterDelegate {
     @objc func allowTapped() {
         switch permissionsType {
         case .push:
-            getNotificationSettings { (success) -> Void in
+            getNotificationSettings { [weak self] (success) -> Void in
                 if success {
-                    skipped?()
+                    self?.skipped?()
                 }
             }
         case .location:
-            locationService.requestLocationUpdates()
+            print("location")
+//            locationService.requestLocationUpdates()
         }
     }
     
@@ -123,12 +124,10 @@ class AskPermisionsVS: UIViewController, UNUserNotificationCenterDelegate {
  //           DefaultsManager.isAskedForLocation = true
             skipped?()
             break
-            
         }
-        
     }
     
-    func getNotificationSettings(_ completion: (Bool) -> Void) {
+    func getNotificationSettings(_ completion: @escaping (Bool) -> Void) {
         UNUserNotificationCenter.current().delegate = self
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
@@ -137,10 +136,10 @@ class AskPermisionsVS: UIViewController, UNUserNotificationCenterDelegate {
             // 2. Attempt registration for remote notifications on the main thread
             DispatchQueue.main.async {
                 UIApplication.shared.registerForRemoteNotifications()
-                
+                completion(true)
             }
         }
-        completion(true)
+        
     }
  
     
