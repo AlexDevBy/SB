@@ -1,36 +1,87 @@
 //
-//  AppLaunchWayViewModel.swift
+//  AppLaunchWayViewController.swift
 //  SBProject
 //
-//  Created by Alex Misko on 13.01.23.
+//  Created by Alex Misko on 16.01.2023.
 //
 
 
+import Foundation
+import Combine
 
-import UIKit
+protocol AppLaunchWayViewModelProtocol {
+    func fetchData()
+}
 
-class AppLaunchWayViewController: UIViewController {
+protocol AppLaunchOutput: AnyObject {
+    var appWay: ((LaunchInstructor) -> Void)? { get set }
+}
 
-    let viewModel: AppLaunchWayViewModelProtocol
-
+final class AppLaunchWayViewModel: AppLaunchWayViewModelProtocol, AppLaunchOutput {
+    
+    // MARK: - Properties
+    private let countryData = PassthroughSubject<CountryEntitie, Never>()
+    private let getLink = PassthroughSubject<String, Never>()
+    private let countryService: CountryServiceProtocol
+    private let helperService: HelperServiceProtocol
+    private var cancellable = Set<AnyCancellable>()
+    
+    // MARK: - Output
+    var appWay: ((LaunchInstructor) -> Void)?
+    
     // MARK: - Init
-    init(viewModel: AppLaunchWayViewModelProtocol) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupView()
-        viewModel.fetchData()
+    init(
+        countryService: CountryServiceProtocol,
+        helperService: HelperServiceProtocol
+    ) {
+        self.countryService = countryService
+        self.helperService = helperService
     }
     
-    private func setupView() {
-        view.backgroundColor = UIColor(hexString: "#63B7F8")
+    // MARK: - AppLaunchWayViewModelProtocol
+    private func sinkData() {
+        countryData
+            .sink { [weak self] data in
+                guard let self = self else {return}
+                if data.data.tabs == "1" {
+                    self.appWay?(.push)
+                } else {
+                    self.linkRequest()
+                }
+            }
+            .store(in: &cancellable)
+        getLink
+            .sink { [weak self] link in
+                self?.appWay?(.webView(link))
+            }
+            .store(in: &cancellable)
     }
+    
+    func fetchData() {
+        sinkData()
+        getCountry()
+    }
+    
+    func getCountry() {
+        countryService.getCountry { [weak self] result in
+            switch result {
+            case .success(let country):
+                self?.countryData.send(country)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func linkRequest() {
+        helperService.getBroswerLink { [weak self] result in
+            switch result {
+            case .success(let link):
+                self?.getLink.send(link.link)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
 }

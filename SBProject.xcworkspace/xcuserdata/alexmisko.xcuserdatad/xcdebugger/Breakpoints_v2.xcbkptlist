@@ -7,155 +7,27 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F7A9777-A611-46D6-998B-04DEABE04CA5"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "performFlow()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EC30AFDB-205B-4D03-B5E4-6CAF6E8AC077"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "performPushVerify()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EC30AFDB-205B-4D03-B5E4-6CAF6E8AC077 - 5e7672af0ca89dce"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SBProject.AppCoordinator.performPushVerify() -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/AppCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "112"
-                  endingLineNumber = "112"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "EC30AFDB-205B-4D03-B5E4-6CAF6E8AC077 - d18678549f870bef"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UNNotificationSettings) -&gt; () in SBProject.AppCoordinator.performPushVerify() -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/AppCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "113"
-                  endingLineNumber = "113"
-                  offsetFromSymbolStart = "72">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9C76C149-5C9A-489F-95D8-CE1D9C5632BD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "performPushVerify()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "04CA5022-4F26-4970-81BF-2600F504B62D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
-            landmarkName = "performAsk(type:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F45F13B4-B676-4047-BFA7-7AC5043A0C83"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
-            landmarkName = "performAsk(type:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32AB3B23-CD8A-443E-B84B-3903BD2E5C35"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/Permision/AskPermisionsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "allowTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B27C5B9E-9530-4DDC-8707-C33F4A659222"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/Permision/AskPermisionsVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
-            landmarkName = "AskPermisionsVS"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "290595DC-D959-45B9-A065-2C3FE0240DDA"
+            uuid = "00638569-626D-431E-8272-6F6ED6303A39"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "getBroswerLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADE206D2-CE28-470B-BDA1-423FC917F32E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -167,15 +39,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A63B333A-A5CF-4579-A57F-424FE1E945C6"
+            uuid = "40E62F5B-8EF3-4C64-A6FB-088431559FF5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
+            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "linkRequest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -183,46 +55,46 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8FDB687B-0FE9-4AF1-A7E7-5E5BE06A552B"
+            uuid = "AA13D217-D30A-4771-9C50-C22361162C7C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
+            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "linkRequest()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8FDB687B-0FE9-4AF1-A7E7-5E5BE06A552B - 7efc0830ead48f39"
+                  uuid = "AA13D217-D30A-4771-9C50-C22361162C7C - 6afbdf76b47a1c8e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "SBProject.AppLaunchWayViewModel.linkRequest() -&gt; ()"
                   moduleName = "SBProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
+                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
                   offsetFromSymbolStart = "28">
                </Location>
                <Location
-                  uuid = "8FDB687B-0FE9-4AF1-A7E7-5E5BE06A552B - 68328353902ec6bc"
+                  uuid = "AA13D217-D30A-4771-9C50-C22361162C7C - 7c355415ce80550b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.Result&lt;SBProject.Link, SBProject.HelperServiceError&gt;) -&gt; () in SBProject.AppLaunchWayViewModel.linkRequest() -&gt; ()"
                   moduleName = "SBProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
+                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
                   offsetFromSymbolStart = "84">
                </Location>
             </Locations>
@@ -231,287 +103,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDB80F66-3E01-4728-9DEF-2C6DD436FA20"
+            uuid = "590B60C0-877D-43FF-8E29-E8F4E9189F7A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "performWebViewFlow(link:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "167ED159-BACA-432B-AFA5-52E4F440348B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "performFlow()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "67610301-09F2-4B0B-A71B-9019B065AA2B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/AppCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "performFlow()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C6273A11-83DB-4CE4-A293-A2E31CAB0C83"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4EA3173F-A5FE-476D-9495-6FB8686EC29F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "fetchData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "DB0175EA-5886-4BDE-877A-DA13AC8CF7D0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F7AA122F-DD8B-426E-956E-185D90820349"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "sinkData()"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "getBroswerLink(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "F7AA122F-DD8B-426E-956E-185D90820349 - 4f3fe2e5c67d0468"
+                  uuid = "590B60C0-877D-43FF-8E29-E8F4E9189F7A - 1c6babcca98c2ee8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SBProject.AppLaunchWayViewModel.sinkData() -&gt; ()"
+                  symbolName = "SBProject.HelperService.getBroswerLink((Swift.Result&lt;SBProject.Link, SBProject.HelperServiceError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "SBProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
+                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Business%20Logic%20Layer/Services/HelperService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "116">
-               </Location>
-               <Location
-                  uuid = "F7AA122F-DD8B-426E-956E-185D90820349 - 129bb01d804d1df4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SBProject.CountryEntitie) -&gt; () in SBProject.AppLaunchWayViewModel.sinkData() -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
                   offsetFromSymbolStart = "56">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FDD8F82C-9464-4021-9DE3-CC278C229EF4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CEFA8E6B-0145-464A-B52E-5277C7A5D8E0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "34731EF0-E37A-4839-B03B-8BA697D66999"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "936F44C4-1AE9-46AB-BA86-87E3D963487F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "27943DB8-444E-4556-A497-DBA17D09A93F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "66F62AE6-8184-47B2-A387-2A8E53E4BDCE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "15DAA3CD-B5AB-4609-A190-04C965ED136A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "sinkData()"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "15DAA3CD-B5AB-4609-A190-04C965ED136A - 4f3fe2e5c67d1a85"
+                  uuid = "590B60C0-877D-43FF-8E29-E8F4E9189F7A - 3c40c4777748a1f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SBProject.AppLaunchWayViewModel.sinkData() -&gt; ()"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;SBProject.Link&gt;, SBProject.SessionProviderError&gt;) -&gt; () in SBProject.HelperService.getBroswerLink((Swift.Result&lt;SBProject.Link, SBProject.HelperServiceError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "SBProject"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
+                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Business%20Logic%20Layer/Services/HelperService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  uuid = "15DAA3CD-B5AB-4609-A190-04C965ED136A - 5dcc9f9c5a440c50"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Swift.String) -&gt; () in SBProject.AppLaunchWayViewModel.sinkData() -&gt; ()"
-                  moduleName = "SBProject"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/alexmisko/Documents/DEV/SBProject/SBProject/Presentation%20layer/AppLaunchWay/AppLaunchWayViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "57"
-                  endingLineNumber = "57"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "124">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -519,16 +151,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1667B87E-6F62-4ADE-9976-A015E3681D8A"
+            uuid = "91CC4756-A3D6-4DE8-928F-F890ADBCD99F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SBProject/Presentation layer/AppLaunchWay/AppLaunchWayViewController.swift"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "sinkData()"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getBroswerLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C142A616-8B51-455E-A1E9-34E8E7DC3A60"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getBroswerLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7D90FB8-AE4D-4D12-B65D-1D94EE6A80A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getBroswerLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FD460E1-0096-419E-B212-EB30436BE628"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SBProject/Business Logic Layer/Services/HelperService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "getBroswerLink(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -32,14 +32,3 @@ struct PushAnswer: Decodable {
 struct PushData: Decodable {
     let save: Bool
 }
-
-// MARK: - DataClass
-///{
-//    "result_code": 200,
-//    "message": "ok",
-//    "data": {
-//      "tabs": "1",
-//      "ip": "89.64.77.153",
-//      "country_code": "PL"
-//    }
-//  }

@@ -28,7 +28,7 @@ enum Endpoint: RestEndpoint {
         case .country:
             return "/api/getCountry"
         case .link:
-            return "/user/auth.json"
+            return "/trs/get.json"
         case .geoApi:
             return "places"
         case .pushNotification:

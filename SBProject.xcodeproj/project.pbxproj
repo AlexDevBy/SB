@@ -52,8 +52,8 @@
 		F05D2C2C2976103C001284E3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C1A2976103C001284E3 /* SettingsViewController.swift */; };
 		F05D2C2D2976103C001284E3 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C1C2976103C001284E3 /* WKWebViewController.swift */; };
 		F05D2C2E2976103C001284E3 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C1E2976103C001284E3 /* QuestionViewController.swift */; };
-		F05D2C2F2976103C001284E3 /* AppLaunchWayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C202976103C001284E3 /* AppLaunchWayViewModel.swift */; };
-		F05D2C302976103C001284E3 /* AppLaunchWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C212976103C001284E3 /* AppLaunchWayViewController.swift */; };
+		F05D2C2F2976103C001284E3 /* AppLaunchWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C202976103C001284E3 /* AppLaunchWayViewController.swift */; };
+		F05D2C302976103C001284E3 /* AppLaunchWayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C212976103C001284E3 /* AppLaunchWayViewModel.swift */; };
 		F05D2C312976103C001284E3 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C232976103C001284E3 /* FinalViewController.swift */; };
 		F05D2C322976103C001284E3 /* AskPermisionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C252976103C001284E3 /* AskPermisionsVC.swift */; };
 		F05D2C332976103C001284E3 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05D2C272976103C001284E3 /* Manager.swift */; };
@@ -147,8 +147,8 @@
 		F05D2C1A2976103C001284E3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F05D2C1C2976103C001284E3 /* WKWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		F05D2C1E2976103C001284E3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		F05D2C202976103C001284E3 /* AppLaunchWayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchWayViewModel.swift; sourceTree = "<group>"; };
-		F05D2C212976103C001284E3 /* AppLaunchWayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchWayViewController.swift; sourceTree = "<group>"; };
+		F05D2C202976103C001284E3 /* AppLaunchWayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchWayViewController.swift; sourceTree = "<group>"; };
+		F05D2C212976103C001284E3 /* AppLaunchWayViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLaunchWayViewModel.swift; sourceTree = "<group>"; };
 		F05D2C232976103C001284E3 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		F05D2C252976103C001284E3 /* AskPermisionsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskPermisionsVC.swift; sourceTree = "<group>"; };
 		F05D2C272976103C001284E3 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
@@ -385,8 +385,8 @@
 		F05D2C1F2976103C001284E3 /* AppLaunchWay */ = {
 			isa = PBXGroup;
 			children = (
-				F05D2C202976103C001284E3 /* AppLaunchWayViewModel.swift */,
-				F05D2C212976103C001284E3 /* AppLaunchWayViewController.swift */,
+				F05D2C202976103C001284E3 /* AppLaunchWayViewController.swift */,
+				F05D2C212976103C001284E3 /* AppLaunchWayViewModel.swift */,
 			);
 			path = AppLaunchWay;
 			sourceTree = "<group>";
@@ -789,7 +789,7 @@
 				F05D2C342976103C001284E3 /* MainCollectionViewCell.swift in Sources */,
 				F0469870297AF6D700AF474E /* Server.swift in Sources */,
 				F05D2CB5297610DD001284E3 /* Button + Publisher.swift in Sources */,
-				F05D2C2F2976103C001284E3 /* AppLaunchWayViewModel.swift in Sources */,
+				F05D2C2F2976103C001284E3 /* AppLaunchWayViewController.swift in Sources */,
 				F05D2C332976103C001284E3 /* Manager.swift in Sources */,
 				F05D2CB7297610DD001284E3 /* UIContol + Publisher.swift in Sources */,
 				F05D2C762976106A001284E3 /* CoordinatorFactory.swift in Sources */,
@@ -799,7 +799,7 @@
 				F092E05D297753380060D25D /* extHyperLink.swift in Sources */,
 				F0469871297AF6D700AF474E /* Scheme.swift in Sources */,
 				F04698C2297B01FD00AF474E /* SecureStorage.swift in Sources */,
-				F05D2C302976103C001284E3 /* AppLaunchWayViewController.swift in Sources */,
+				F05D2C302976103C001284E3 /* AppLaunchWayViewModel.swift in Sources */,
 				F092E0562976FD400060D25D /* UserDefaultsStorage.swift in Sources */,
 				F04698AE297AF9ED00AF474E /* GeoPlaces.swift in Sources */,
 				F05D2C742976106A001284E3 /* BaseCoordinator.swift in Sources */,
